@@ -8,11 +8,11 @@
         <version>2.1.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>org.glsid</groupId>
+    <groupId>com.octo</groupId>
     <artifactId>eurika-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>eurika-service</name>
-    <description>Demo project for Spring Boot</description>
+    <name>eureka-service</name>
+    <description>Eureka registration service</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -55,6 +55,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <finalName>eureka-service</finalName>
     </build>
 
 </project>

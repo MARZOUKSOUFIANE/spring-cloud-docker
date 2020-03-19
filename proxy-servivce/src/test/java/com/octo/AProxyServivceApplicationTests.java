@@ -1,4 +1,4 @@
-package org.glsid;
+package com.octo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
