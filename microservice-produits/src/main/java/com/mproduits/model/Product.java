@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int id;
 
     private String titre;
