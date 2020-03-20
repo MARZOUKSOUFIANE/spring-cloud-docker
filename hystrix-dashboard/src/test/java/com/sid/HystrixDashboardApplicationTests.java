@@ -1,10 +1,10 @@
-package com.octo;
+package com.sid;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringAdminApplicationTests {
+class HystrixDashboardApplicationTests {
 
     @Test
     void contextLoads() {

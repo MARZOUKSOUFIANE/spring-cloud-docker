@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "euspring.boot.admin.client.url",
+      "type": "java.lang.String",
+      "description": "Description for euspring.boot.admin.client.url."
+  }
+] }
