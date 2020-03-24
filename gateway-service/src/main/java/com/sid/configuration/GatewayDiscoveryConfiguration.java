@@ -19,7 +19,7 @@ public class GatewayDiscoveryConfiguration {
                         f.hystrix(h->h.setName("Hystrix").setFallbackUri("forward:/commandesFallback")))
                         .uri("lb://COMMANDE-SERVICE").id("r2"))
 
-                .route(r -> r.path("/paiement/**").filters (f ->
+                .route(r -> r.path("/paiements/**").filters (f ->
                         f.hystrix(h->h.setName("Hystrix").setFallbackUri("forward:/paiementFallback")))
                         .uri("lb://PAIEMENT-SERVICE").id("r3"))
 
