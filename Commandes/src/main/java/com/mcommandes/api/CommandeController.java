@@ -44,9 +44,9 @@ public class CommandeController {
         return nouvelleCommande;
     }
 
-    @PatchMapping(value = "/commandes")
-    public CommandeDto patchCommande(@RequestBody Commande commande){
-        CommandeDto CommandeModifie=commandeService.saveCommande(commande);
+    @PostMapping(value = "/commandes/{id}")
+    public CommandeDto patchCommande(@PathVariable int id,@RequestBody CommandeDto commande){
+        CommandeDto CommandeModifie=commandeService.updateCommande(id,commande);
         logger.info("modification d'une commande pour le produit de l'ID :{}",CommandeModifie.productId);
         return CommandeModifie;
     }

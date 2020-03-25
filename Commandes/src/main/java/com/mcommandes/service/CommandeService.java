@@ -11,9 +11,8 @@ import com.mcommandes.repository.CommandeRepository;
 import com.mcommandes.exceptions.CommandeNotFoundException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
@@ -21,6 +20,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class CommandeService {
     @Autowired
     private CommandeRepository commandeRepository;
@@ -49,15 +49,33 @@ public class CommandeService {
         return productsProxy.getProductById(commande.productId);
     }
 
-    public CommandeDto saveCommande(@RequestBody Commande commande){
+    public CommandeDto saveCommande(Commande commande){
         ProductDto produit=productsProxy.getProductById(commande.getProductId());
-        Double total=commande.getQuantite()*produit.getPrix();
+        Double total=commande.getQuantite()*produit.prix;
         commande.setTotal(total);
         Optional<Commande> nouvelleCommande=Optional.of(commandeRepository.save(commande));
         if(nouvelleCommande.isPresent()){
             return CommandeMapper.map(nouvelleCommande.get());
         }else{
             throw  new ImpossibleAjouterCommandeException("Impossible d'ajouter cette commande");
+        }
+    }
+
+    public CommandeDto updateCommande(int id,CommandeDto commandeDto){
+        if (commandeRepository.findById(id).isPresent()){
+            Commande commande=commandeRepository.findById(id).get();
+            commande.setId(id); commande.setTotal(commandeDto.total); commande.setDateCommande(commandeDto.dateCommande);
+            commande.setCommandePayee(commandeDto.commandePayee); commande.setProductId(commandeDto.productId);
+            commande.setQuantite(commandeDto.quantite);
+            Optional<Commande> nouvelleCommande=Optional.of(commandeRepository.save(commande));
+            if(nouvelleCommande.isPresent()){
+                return CommandeMapper.map(nouvelleCommande.get());
+            }else{
+                throw  new ImpossibleAjouterCommandeException("Impossible de modifier cette commande");
+            }
+        }
+        else {
+            throw new CommandeNotFoundException("La commande correspondante à l'id " + id + " n'existe pas");
         }
     }
 }

@@ -3,67 +3,22 @@ package com.mcommandes.dto;
 
 public class ProductDto {
 
-    private int id;
+    public String titre;
 
-    private String titre;
+    public String description;
 
-    private String description;
+    public String image;
 
-    private String image;
-
-    private Double prix;
+    public Double prix;
 
     public ProductDto() {
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitre() {
-        return titre;
-    }
-
-    public void setTitre(String titre) {
+    public ProductDto(String titre, String description, String image, Double prix) {
         this.titre = titre;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
         this.image = image;
-    }
-
-    public Double getPrix() {
-        return prix;
-    }
-
-    public void setPrix(Double prix) {
         this.prix = prix;
     }
 
-    @Override
-    public String toString() {
-        return "ProductDto{" +
-                "id=" + id +
-                ", titre='" + titre + '\'' +
-                ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
-                ", prix=" + prix +
-                '}';
-    }
 }
