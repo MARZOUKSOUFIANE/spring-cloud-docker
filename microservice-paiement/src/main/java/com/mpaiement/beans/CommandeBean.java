@@ -1,17 +1,9 @@
-package com.mcommandes.model;
+package com.mpaiement.beans;
 
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Date;
 
-@Entity
-public class Commande {
+public class CommandeBean {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private Integer productId;
@@ -22,18 +14,9 @@ public class Commande {
 
     private Boolean commandePayee;
 
-    private Double total;
-
-    public Commande() {
+    public CommandeBean() {
     }
 
-    public Commande(int id, Integer productId, Date dateCommande, Integer quantite, Boolean commandePayee) {
-        this.id = id;
-        this.productId = productId;
-        this.dateCommande = dateCommande;
-        this.quantite = quantite;
-        this.commandePayee = commandePayee;
-    }
 
     public int getId() {
         return id;
@@ -73,14 +56,6 @@ public class Commande {
 
     public void setCommandePayee(Boolean commandePayee) {
         this.commandePayee = commandePayee;
-    }
-
-    public Double getTotal() {
-        return total;
-    }
-
-    public void setTotal(Double total) {
-        this.total = total;
     }
 
     @Override
