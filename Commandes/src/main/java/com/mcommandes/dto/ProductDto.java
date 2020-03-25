@@ -1,7 +1,7 @@
-package com.mcommandes.beans;
+package com.mcommandes.dto;
 
 
-public class ProductBean {
+public class ProductDto {
 
     private int id;
 
@@ -13,7 +13,7 @@ public class ProductBean {
 
     private Double prix;
 
-    public ProductBean() {
+    public ProductDto() {
     }
 
     public int getId() {
@@ -58,7 +58,7 @@ public class ProductBean {
 
     @Override
     public String toString() {
-        return "ProductBean{" +
+        return "ProductDto{" +
                 "id=" + id +
                 ", titre='" + titre + '\'' +
                 ", description='" + description + '\'' +

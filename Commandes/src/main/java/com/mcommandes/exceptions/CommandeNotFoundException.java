@@ -1,4 +1,4 @@
-package com.mcommandes.web.exceptions;
+package com.mcommandes.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

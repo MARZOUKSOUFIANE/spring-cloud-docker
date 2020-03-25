@@ -5,11 +5,11 @@
 
 	<groupId>com.mcommandes</groupId>
 	<artifactId>mcommandes</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>s
 	<packaging>jar</packaging>
 
-	<name>mcommandes</name>
-	<description>Microservices pour simuler des paiements</description>
+	<name>commandes</name>
+	<description>Microservices pour simuler des commandes</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -68,7 +68,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
+    </dependencies>
 
 	<dependencyManagement>
 		<dependencies>
