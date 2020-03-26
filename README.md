@@ -57,7 +57,7 @@ Un microservice qui se charge de gére des commande et les stockent dans une bas
 Un microservice qui se charge de gére des commande et les stockent dans une base de données `H2`
 
 
-![alt text](https://drive.google.com/uc?export=view&id=1Tp2dEXLQK7pNc6BOVuhlneCL21atsaz2)
+![alt text](https://drive.google.com/uc?export=view&id=1Tp2dEXLQK7pNc6BOVuhlneCL21atsaz2 =100*100)
 
 
 
@@ -85,13 +85,13 @@ Pour utiliser le projet il faut procéder manuellement par:
  - 1. Cloner le projet : ** git clone https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture.git **
  - 2. Sur `intellij` créer un projet `project from existing sources`.
  - 
-  ![alt text](https://user.oc-static.com/upload/2019/02/04/15492755217013_image10.png)
+  ![alt text](https://user.oc-static.com/upload/2019/02/04/15492755217013_image10.png =100*100)
 
  - 3.Importer les differents microservices comme étant des modules pour travailler sur la même fenêtre et éviter de se balader entre plusieurs fenêtres. 
  
  
-   ![alt text](https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png = 100*100)
+   ![alt text](https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png =100*100)
 
-   ![alt text](https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png = 100*100)
+   ![alt text](https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png =100*100)
    
 - 4. Lancer chaque microservice en commençant le microservice de conf.
