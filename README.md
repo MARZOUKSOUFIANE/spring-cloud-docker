@@ -48,7 +48,7 @@ Le Role ici c'est pas d'établir une approche métier trés avancée, mais l'obj
 
 Un microservice qui se charge de gérer des produits et les stockent dans une base de données `MySQL`
 
-`- Microservice Commande`
+`- Microservice Commandes`
 
 Un microservice qui se charge de gérer des commandes et les stockent dans une base de données `H2`
 
