@@ -57,7 +57,8 @@ Un microservice qui se charge de gére des commande et les stockent dans une bas
 Un microservice qui se charge de gére des commande et les stockent dans une base de données `H2`
 
 
-![alt text](https://drive.google.com/uc?export=view&id=1Tp2dEXLQK7pNc6BOVuhlneCL21atsaz2 =100*100)
+    <img src="https://drive.google.com/uc?export=view&id=1Tp2dEXLQK7pNc6BOVuhlneCL21atsaz2" width="100" height="100" />
+
 
 
 
@@ -86,18 +87,13 @@ Pour utiliser le projet il faut procéder manuellement par:
  - 2. Sur `intellij` créer un projet `project from existing sources`.
  
 
-  ![alt text](https://user.oc-static.com/upload/2019/02/04/15492755217013_image10.png =100*100)
-   <img src="https://user.oc-static.com/upload/2019/02/04/15492755217013_image10.png" width="100" height="100" />
+   <img src="https://user.oc-static.com/upload/2019/02/04/15492755217013_image10.png" width="250" height="250" />
 
 
  - 3.Importer les differents microservices comme étant des modules pour travailler sur la même fenêtre et éviter de se balader entre plusieurs fenêtres. 
     
 
-    <img src="https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png" width="100" height="100" />
-    <img src="https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png" width="100" height="100" />
+    <img src="https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png" width="250" height="250" />
 
-   ![alt text](https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png =100*100)
 
-   ![alt text](https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png =100*100)
-   
 - 4. Lancer chaque microservice en commençant le microservice de conf.
