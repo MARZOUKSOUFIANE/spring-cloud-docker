@@ -39,7 +39,7 @@ Pour pouvoir surveiller les paramètres et les métriques Hystrix de l’applica
 
 ***
 
-#### Services métier
+#### Microservices métier
 
 Trois microservices qui communiquent entre eux dans un premier temps graçe à des api rest **(OpenFeign)**
 Le Role ici c'est pas d'établir une approche métier trés avancée, mais l'objectif c'est de créer des microservices fonctionnels qui communiquent entre eux, car ce qui nous intéresse en premier lieu c'est l'interopérabilité entre ses microservices
@@ -62,7 +62,7 @@ Un microservice qui se charge de gére des commande et les stockent dans une bas
 ***
 
 
-#### Services clients
+#### Microservices clients
 
 `- Zuul Proxy Client`
 
