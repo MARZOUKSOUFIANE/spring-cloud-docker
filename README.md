@@ -83,7 +83,7 @@ Ce microservice consomme les autres microservices en passant par Spring Cloud Ga
 cette version du projet contient juste les 'Dockerfile' et pas de 'docker-compose'.
 Pour utiliser le projet il faut procéder manuellement par:
 
- - 1. Cloner le projet : ** git clone https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture.git **
+ - 1. Cloner le projet : ` git clone https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture.git `
  - 2. Sur `intellij` créer un projet `project from existing sources`.
  
 
@@ -96,4 +96,4 @@ Pour utiliser le projet il faut procéder manuellement par:
     <img src="https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png" width="500" height="500" />
 
 
-- 4. Lancer chaque microservice en commençant le microservice de conf.
+- 4. Lancer chaque microservice en commençant par le microservice de conf.
