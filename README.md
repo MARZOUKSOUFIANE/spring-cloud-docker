@@ -54,7 +54,7 @@ Un microservice qui se charge de gére des commande et les stockent dans une bas
 
 `- Microservice Paiement`
 
-Un microservice qui se charge de gére des commande et les stockent dans une base de données `H2`
+Un microservice qui se charge de gére des paiement et les stockent dans une base de données `H2`
 
 
 <img src="https://drive.google.com/uc?export=view&id=1Tp2dEXLQK7pNc6BOVuhlneCL21atsaz2" width="500" height="500" />
@@ -74,7 +74,7 @@ Ce microservice consomme les autres microservices en passant par Zull Proxy.
 Un microservice Spring MVC coté serveur avec thymeleaf.
 Ce microservice consomme les autres microservices en passant par Spring Cloud Gateway.
 
-** l'objectif de créer deux microservices clients un pour Zuul et l'autre pour Spring Cloud Gateway c'est d'avoir la possibilité de tester les deux types de proxies et leur fonctionnement. **
+> L'objectif de créer deux microservices clients un pour Zuul et l'autre pour Spring Cloud Gateway c'est d'avoir la possibilité de tester les deux types de proxies et leur fonctionnement.
 
 
 
