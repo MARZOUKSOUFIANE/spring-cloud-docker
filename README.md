@@ -20,7 +20,7 @@ version, obligeant les autres Microservices concernés à la prendre en compte �
 
 `- Spring Cloud Netflix Eureka.`
 
-C'est un microservice annuaire qui contient des informations sur les différents microservices del’application pour faciliter la communication entre ces derniers.
+C'est un microservice annuaire qui contient des informations sur les différents microservices de l’application pour faciliter la communication entre ces derniers.
 Les services s'enregistrent auprès de l'annuaire,Cela simplifie grandement les communications, car il suffit juste de connaitre le nom du service voulu pour pouvoir le consulter.
 
 `- Spring Cloud Zull Proxy & Spring Cloud Gateway.`
@@ -30,7 +30,7 @@ cloud Gateway). Ces derniers re-routent ensuite les requêtes vers les services 
 
 `- Spring Boot Admin.`
 
-Un microservice offrant une interface utilisateur qui facilite la géstion et le monitoring des microservice Spring Boot en se basant sur les Endpoints de Spring Boot Actuator.
+Un microservice offrant une interface utilisateur qui facilite la gestion et le monitoring des microservice Spring Boot en se basant sur les Endpoints de Spring Boot Actuator.
 Les microservices s'enregistrent auprès de Spring Boot Admin via Spring Cloud Eureka. 
 
 `- Hystrix Dashboard.`
@@ -46,15 +46,15 @@ Le Role ici c'est pas d'établir une approche métier trés avancée, mais l'obj
 
 `- Microservice Produits`
 
-Un microservice qui se charge de gére des produits et les stockent dans une base de données `MySQL`
+Un microservice qui se charge de gérer des produits et les stockent dans une base de données `MySQL`
 
 `- Microservice Commande`
 
-Un microservice qui se charge de gére des commande et les stockent dans une base de données `H2`
+Un microservice qui se charge de gérer des commandes et les stockent dans une base de données `H2`
 
 `- Microservice Paiement`
 
-Un microservice qui se charge de gére des paiement et les stockent dans une base de données `H2`
+Un microservice qui se charge de gérer des paiements et les stockent dans une base de données `H2`
 
 
 <img src="https://drive.google.com/uc?export=view&id=1Tp2dEXLQK7pNc6BOVuhlneCL21atsaz2" width="500" height="500" />
@@ -80,7 +80,7 @@ Ce microservice consomme les autres microservices en passant par Spring Cloud Ga
 
 ## Utilisation
 
-cette version du projet contient juste les 'Dockerfile' et pas de 'docker-compose'.
+cette version du projet contient juste les `Dockerfile` et pas de `docker-compose`.
 Pour utiliser le projet il faut procéder manuellement par:
 
  - 1. Cloner le projet : ` git clone https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture.git `
