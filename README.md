@@ -11,10 +11,10 @@ le projet se compose des éléments suivants:
 
 #### Microservices edges
 
-- Spring Cloud Config.
+`- Spring Cloud Config.`
 
 Ce microservice permet de centraliser les configurations du projet. Cela dans le but de rendre plus aisé sa maintenance.
-Il permet de centraliser tous les fichiers de configuration dans un `[dépôt GIT](https://github.com/MARZOUKSOUFIANE/conf)` 
+Il permet de centraliser tous les fichiers de configuration dans un [dépôt GIT](https://github.com/MARZOUKSOUFIANE/conf) 
 Ainsi, quand nous mettons à jour un fichier de configuration dans le dépôt GIT, ce microservice se met à servir la nouvelle
 version, obligeant les autres Microservices concernés à la prendre en compte à la volée.
 
@@ -57,7 +57,7 @@ Un microservice qui se charge de gére des commande et les stockent dans une bas
 Un microservice qui se charge de gére des commande et les stockent dans une base de données `H2`
 
 
-![alt text](https://drive.google.com/open?id=1Tp2dEXLQK7pNc6BOVuhlneCL21atsaz2)
+![alt text](https://drive.google.com/file/d/1Tp2dEXLQK7pNc6BOVuhlneCL21atsaz2/view)
 
 
 
@@ -84,9 +84,14 @@ Pour utiliser le projet il faut procéder manuellement par:
 
  - 1. Cloner le projet : ** git clone https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture.git **
  - 2. Sur `intellij` créer un projet `project from existing sources`.
+ - 
   ![alt text](https://user.oc-static.com/upload/2019/02/04/15492755217013_image10.png)
+
  - 3. Importer les differents microservices comme étant des modules pour travailler sur la même fenêtre et éviter de se balader entre plusieurs fenêtres. 
  
+ 
    ![alt text](https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png)
+
    ![alt text](https://user.oc-static.com/upload/2019/02/04/15492757357983_image22.png)
    
+- 4. Lancer chaque microservice en commençant le microservice de conf.
