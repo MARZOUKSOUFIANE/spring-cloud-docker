@@ -4,15 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
+        <artifactId>spring-boot-starter-parent </artifactId>
         <version>2.1.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.octo</groupId>
-    <artifactId>proxy-servivce</artifactId>
+    <artifactId>zuul-proxy</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>a-proxy-servivce</name>
-    <description>Gateway service</description>
+    <name>zuul-proxy</name>
+    <description>Zuul proxy service</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -48,6 +48,14 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
         </dependency>
         <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
