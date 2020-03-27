@@ -1,4 +1,4 @@
-package com.sid.configuration;
+package com.octo.configuration;
 
 import brave.sampler.Sampler;
 import org.springframework.context.annotation.Bean;

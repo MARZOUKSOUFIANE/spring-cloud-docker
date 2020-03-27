@@ -1,4 +1,4 @@
-package com.sid;
+package com.octo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
