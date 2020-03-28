@@ -1,0 +1,48 @@
+version: '3'
+services:
+  mysql-container:
+    image: mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_docker
+    ports:
+      - "3306:3306"
+    volumes:
+      - /containers/mysql/db1
+    networks: 
+    - web
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql-container
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+    - "8080:80"
+    restart: always
+    depends_on: 
+    - mysql-container
+    networks: 
+    - web
+
+  spring-docker-conainer:
+    image: spring-docker
+    depends_on:
+      - mysql-container
+    ports:
+      - 8088:8080
+    environment:
+      DATABASE_HOST: mysql-container
+      DATABASE_USER: root
+      DATABASE_password: root
+      DATABASE_NAME: db_docker
+      DATABASE_PORT: 3306
+    volumes:
+      - /containers/spring-app-jpa
+    networks: 
+    - web
+
+networks: 
+  web:
+    driver: bridge
