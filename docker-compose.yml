@@ -1,0 +1,164 @@
+version: '3'
+services:
+  mysql-container:
+    image: mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_produits
+    ports:
+      - "3306:3306"
+    volumes:
+      - /containers/mysql/db_produits
+    networks: 
+    - web
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql-container
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+    - "8080:80"
+    restart: always
+    depends_on: 
+    - mysql-container
+    networks: 
+    - web
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    environment:
+      STORAGE_TYPE: mem
+    ports:
+      # Port used for the Zipkin UI and HTTP Api
+      - 9411:9411
+
+  config:
+    image: config
+    ports:
+      - 8888:8888
+    volumes:
+      - /containers/config
+    networks: 
+    - web
+
+  eureka:
+    image: eureka
+    ports:
+      - 8761:8761
+    depends_on: 
+    - config
+    volumes:
+      - /containers/eureka
+    networks: 
+    - web
+
+  spring-admin:
+    image: spring-admin
+    ports:
+      - 8087:8087
+    depends_on: 
+    - config
+    volumes:
+      - /containers/spring-admin
+    networks: 
+    - web
+
+  produits:
+    image: produits
+    depends_on:
+      - mysql-container
+      - config
+      - eureka
+    ports:
+      - 9001:9001
+    environment:
+      DATABASE_HOST: mysql-container
+      DATABASE_USER: root
+      DATABASE_password: root
+      DATABASE_NAME: db_produits
+      DATABASE_PORT: 3306
+    volumes:
+      - /containers/produits
+    networks: 
+    - web
+
+  commandes:
+    image: commandes
+    depends_on:
+      - config
+      - eureka
+    ports:
+      - 9002:9002
+    volumes:
+      - /containers/commandes
+    networks: 
+    - web
+
+  paiement:
+    image: paiement
+    depends_on:
+      - config
+      - eureka
+    ports:
+      - 9003:9003
+    volumes:
+      - /containers/paiement
+    networks: 
+    - web
+
+  zuul-proxy:
+    image: zuul-proxy
+    depends_on:
+      - config
+      - eureka
+    ports:
+      - 9004:9004
+    volumes:
+      - /containers/zuul-proxy
+    networks: 
+    - web
+
+  springcloud-gateway:
+    image: springcloud-gateway
+    depends_on:
+      - config
+      - eureka
+    ports:
+      - 8088:8088
+    volumes:
+      - /containers/springcloud-gateway
+    networks: 
+    - web
+
+  zuul-client:
+    image: zuul-client
+    depends_on:
+      - config
+      - eureka
+    ports:
+      - 8000:8000
+    volumes:
+      - /containers/zuul-client
+    networks: 
+    - web
+
+  springcloudgateway-client:
+    image: springcloudgateway-client
+    depends_on:
+      - config
+      - eureka
+    ports:
+      - 8001:8001
+    volumes:
+      - /containers/springcloudgateway-client
+    networks: 
+    - web
+
+
+
+networks: 
+  web:
+    driver: bridge

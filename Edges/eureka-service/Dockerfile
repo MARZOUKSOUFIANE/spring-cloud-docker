@@ -1,4 +1,7 @@
-FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk:8
+VOLUME /tmp
+ADD target/*.jar /app.jar
+ADD wait-for-it.sh ./wait-for-it.sh
+RUN chmod 777 ./wait-for-it.sh
+CMD ["./wait-for-it.sh", "config:8888", "--","java", "-jar","-Dspring.profiles.active=docker","/app.jar"]
+EXPOSE 8761
