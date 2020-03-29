@@ -27,13 +27,11 @@ services:
     - web
 
   zipkin:
-    image: openzipkin/zipkin
-    container_name: zipkin
-    environment:
-      STORAGE_TYPE: mem
+    image: zipkin
     ports:
-      # Port used for the Zipkin UI and HTTP Api
       - 9411:9411
+    networks: 
+    - web
 
   config:
     image: config
