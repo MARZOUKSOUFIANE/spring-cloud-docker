@@ -33,9 +33,29 @@ cloud Gateway). Ces derniers re-routent ensuite les requêtes vers les services 
 Un microservice offrant une interface utilisateur qui facilite la gestion et le monitoring des microservice Spring Boot en se basant sur les Endpoints de Spring Boot Actuator.
 Les microservices s'enregistrent auprès de Spring Boot Admin via Spring Cloud Eureka. 
 
+`- Zipkin.`
+
+Service qui permet de suivre les requêtes de Microservice en Microservice et de consulter les différentes réponses et interactions afin de cibler directement les éventuels problèmes.
+
 `- Hystrix Dashboard.`
 
 Pour pouvoir surveiller les paramètres et les métriques Hystrix de l’application en temps réel.
+
+***
+
+#### ELK (Elasticsearch, Logstash, Kibana)
+
+`- Logstash`
+
+Pour collecter en permanence les logs de l'application à partir un fichier de log et les traiter (pipeline logstash) avant de les indexer dans elasticsearch.
+
+`- Elasticsearch`
+
+Pour indexer et stocker les logs fournis par logstash, ainsi que d'alimenter kibana par ces logs.
+
+`- Kibana`
+
+Pour mieux visualiser,centraliser et analyser les logs de toute l'application en cas de problèmes.
 
 ***
 
@@ -61,7 +81,6 @@ Un microservice qui se charge de gérer des paiements et les stockent dans une b
 
 ***
 
-
 #### Microservices clients
 
 `- Zuul Proxy Client`
@@ -76,12 +95,39 @@ Ce microservice consomme les autres microservices en passant par Spring Cloud Ga
 
 > L'objectif de créer deux microservices clients un pour Zuul et l'autre pour Spring Cloud Gateway c'est d'avoir la possibilité de tester les deux types de proxies et leur fonctionnement.
 
+***
 
 
 ## Utilisation
 
-cette version du projet contient juste les `Dockerfile` et pas de `docker-compose`.
-Pour utiliser le projet il faut procéder manuellement par:
+`- Avec Docker-compose`
+
+cette version du projet intègre **Docker** (`Dockerfile` et de `docker-compose`).
+Pour utiliser le projet il faut procéder par:
+
+ - 1. Cloner le projet : ` git clone https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture.git `
+ - 2. Généner le build de chaque microservice.
+ - 3. Lancer l'architecture avec docker-compose `sudo docker-compose up`
+
+> NB: la version dockerisée du projet lance les microservice avec le profile Spring `docker` afin de préserver la configuration normale et la configuration relative au docker, ce profile se lance automatiquement au moment du build des images docker. 
+
+Pour visualiser les logs il faut utiliser la stack ELK:
+    - créer un fichier de logs et mapper les logs vers ce ficheir `sudo docker-compose logs > [path <file>.log]`
+    - télécharger elasticsearch et la lancer graçe à la commande `./bin/elasticsearch`
+    - télécharger logstash , et créer un fichier `logstash.conf`( [exemple](https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture/-/blob/master/Docker-ELK/logstash/pipeline/logstash.conf)°  qui contient le pipeline logstash(input, filter, output) et la lancer logstash graçce à la commande `./bin/logstash -f logstash.conf`
+    - télécharger kibana et la lancer graçe à la commande `./bin/kibana`, et consulter `http://localhost:5601` pour visualiser les logs.
+
+
+   <img src="https://drive.google.com/uc?export=view&id=1wfEUhBpwJy0SM47f-4TLIDYaNMoDfxzW" width="600" height="600" />
+
+
+> Cette repository du projet contient aussi la version de ELK avec docker , il suffit juste d'accéder au dossier `Docker-elk` et lancer `sudo docker-compose up` 
+
+
+
+`- Sans Docker-compose`
+
+Pour utiliser le projet manuellement il faut procéder  par:
 
  - 1. Cloner le projet : ` git clone https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture.git `
  - 2. Sur `intellij` créer un projet `project from existing sources`.
