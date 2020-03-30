@@ -115,11 +115,11 @@ Pour visualiser les logs il faut utiliser la stack ELK:
 
 - créer un fichier de logs et mapper les logs vers ce ficheir `sudo docker-compose logs > [path <file>.log]`
 - télécharger elasticsearch et la lancer graçe à la commande `./bin/elasticsearch`
-- télécharger logstash , et créer un fichier `logstash.conf`( [exemple](https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture/-/blob/master/Docker-ELK/logstash/pipeline/logstash.conf)°  qui contient le pipeline logstash(input, filter, output) et la lancer logstash graçce à la commande `./bin/logstash -f logstash.conf`
+- télécharger logstash , et créer un fichier `logstash.conf`( [exemple](https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture/-/blob/master/Docker-ELK/logstash/pipeline/logstash.conf) )  qui contient le pipeline logstash(input, filter, output) et la lancer logstash graçce à la commande `./bin/logstash -f logstash.conf`
 - télécharger kibana et la lancer graçe à la commande `./bin/kibana`, et consulter `http://localhost:5601` pour visualiser les logs.
 
 
-   <img src="https://drive.google.com/uc?export=view&id=1QTT0RvbkNyjNX6nmnIQxoB6AXnnSnW7y" width="600" height="800" />
+   <img src="https://drive.google.com/uc?export=view&id=1QTT0RvbkNyjNX6nmnIQxoB6AXnnSnW7y" width="800" height="600" />
 
 
 > Le projet contient aussi la version de ELK avec docker , il suffit juste d'accéder au dossier `Docker-elk` et lancer `sudo docker-compose up` 
