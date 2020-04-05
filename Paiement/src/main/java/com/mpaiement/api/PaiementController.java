@@ -5,11 +5,19 @@ import com.mpaiement.dto.PaiementDto;
 import com.mpaiement.repository.PaiementRepository;
 import com.mpaiement.model.Paiement;
 import com.mpaiement.service.PaiementService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.*;
 
 @RestController
 public class PaiementController {
@@ -34,11 +42,16 @@ public class PaiementController {
         return paiementService.getPaiementById(id);
     }
 
+
+    @HystrixCommand(fallbackMethod = "paiementCommandeFallback", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "10000")
+    })
     @GetMapping(value = "/paiements/{id}/commande")
     public CommandeDto getPaiementCommande(@PathVariable int id){
         logger.info("recuperer commande du paiement de l'ID :{}",id);
         return paiementService.getPaiementCommande(id);
     }
+
 
     @PostMapping(value = "/paiements")
     public PaiementDto savePaiement(@RequestBody Paiement paiement){
@@ -47,7 +60,11 @@ public class PaiementController {
         return nouveauPaiement;
     }
 
+    public CommandeDto paiementCommandeFallback(int id) {
 
+
+        return new CommandeDto();
+    }
 
 
 }
