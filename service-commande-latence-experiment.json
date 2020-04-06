@@ -40,8 +40,8 @@
                     "base_url": "http://localhost:9002/actuator",
                     "assaults_configuration": {
                         "level": 1,
-                        "latencyRangeStart": 30000,
-                        "latencyRangeEnd": 60000,
+                        "latencyRangeStart": 10000,
+                        "latencyRangeEnd": 30000,
                         "latencyActive": true,
                         "exceptionsActive": false,
                         "killApplicationActive": false,

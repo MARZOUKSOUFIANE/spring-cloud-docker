@@ -499,3 +499,334 @@
 [36m[2020-04-06 02:13:49 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
 [36m[2020-04-06 02:13:49 DEBUG] [__init__:72][39m Cleaning up controls
 [36m[2020-04-06 02:13:49 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:18:38 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-06 02:18:38 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-06 02:18:38 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:18:39 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:18:39 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:18:39 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-06 02:18:39 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:18:39 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:18:39 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-06 02:18:39 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-06 02:18:39 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:18:39 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:18:39 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:18:39 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency starts responding slowly
+[36m[2020-04-06 02:18:39 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:18:39 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:18:39 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-06 02:18:39 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:18:39 INFO] [activity:161][39m Probe: paiement-service-must-still-respond
+[36m[2020-04-06 02:18:39 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 06 Apr 2020 01:18:39 GMT'}, 'body': '{"idCommande":1,"montant":3400,"numeroCarte":112233445566}'}'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:18:39 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-06 02:18:39 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:18:39 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-06 02:18:39 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-06 02:18:39 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:18:39 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-06 02:18:39 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-06 02:18:39 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-06 02:18:39 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:18:39 INFO] [activity:161][39m Probe: paiement-service-must-still-respond
+[36m[2020-04-06 02:18:39 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 06 Apr 2020 01:18:39 GMT'}, 'body': '{"idCommande":1,"montant":3400,"numeroCarte":112233445566}'}'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:18:39 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-06 02:18:39 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-06 02:18:39 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-06 02:18:39 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-06 02:18:39 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-06 02:18:39 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-06 02:18:39 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:19:16 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-06 02:19:16 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-06 02:19:16 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-06 02:19:17 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:19:17 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:19:17 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:19:17 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:19:17 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-06 02:19:17 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:19:17 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:19:17 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-06 02:19:17 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-06 02:19:17 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:19:17 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:19:17 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:19:17 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency starts responding slowly
+[36m[2020-04-06 02:19:17 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:19:17 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:19:17 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-06 02:19:17 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-06 02:19:17 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-06 02:19:17 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-06 02:19:17 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:19:17 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:19:17 INFO] [activity:161][39m Probe: paiement-service-must-still-respond
+[36m[2020-04-06 02:19:18 DEBUG] [activity:179][39m   => succeeded with '{'status': 404, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 06 Apr 2020 01:19:18 GMT'}, 'body': '{"timestamp":"2020-04-06T01:19:18.035+0000","status":404,"error":"Not Found","message":"Le paiement correspondante à l\'id 11111 n\'existe pas","path":"/paiements/11111"}'}'
+[36m[2020-04-06 02:19:18 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:19:18 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[36m[2020-04-06 02:19:18 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[31m[2020-04-06 02:19:18 CRITICAL] [experiment:218][39m Steady state probe 'paiement-service-must-still-respond' is not in the given tolerance so failing this experiment
+[32m[2020-04-06 02:19:18 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-06 02:19:18 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-06 02:19:18 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2020-04-06 02:19:18 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-06 02:19:18 INFO] [experiment:273][39m Experiment ended with status: failed
+[36m[2020-04-06 02:19:18 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-06 02:19:18 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-06 02:19:18 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:19:33 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-06 02:19:33 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-06 02:19:33 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:19:34 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:19:34 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:19:34 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-06 02:19:34 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:19:34 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:19:34 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-06 02:19:34 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-06 02:19:34 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:19:34 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:19:34 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:19:34 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency starts responding slowly
+[36m[2020-04-06 02:19:34 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:19:34 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:19:34 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-06 02:19:34 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:19:34 INFO] [activity:161][39m Probe: paiement-service-must-still-respond
+[36m[2020-04-06 02:19:34 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 06 Apr 2020 01:19:34 GMT'}, 'body': '{"idCommande":1,"montant":3400,"numeroCarte":112233445566}'}'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:19:34 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-06 02:19:34 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:19:34 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-06 02:19:34 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-06 02:19:34 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:19:34 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-06 02:19:34 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-06 02:19:34 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-06 02:19:34 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:19:34 INFO] [activity:161][39m Probe: paiement-service-must-still-respond
+[36m[2020-04-06 02:19:34 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 06 Apr 2020 01:19:34 GMT'}, 'body': '{"idCommande":1,"montant":3400,"numeroCarte":112233445566}'}'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:19:34 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-06 02:19:34 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-06 02:19:34 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-06 02:19:34 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-06 02:19:34 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-06 02:19:34 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-06 02:19:34 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:26:45 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-06 02:26:45 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-06 02:26:45 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:26:46 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:26:46 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:26:46 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-06 02:26:46 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:26:46 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:26:46 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-06 02:26:46 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-06 02:26:46 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:26:46 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:26:46 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:26:46 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency starts responding slowly
+[36m[2020-04-06 02:26:46 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:26:46 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:26:46 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-06 02:26:46 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:26:46 INFO] [activity:161][39m Probe: paiement-service-must-still-respond
+[36m[2020-04-06 02:26:46 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 06 Apr 2020 01:26:46 GMT'}, 'body': '{"idCommande":1,"montant":3400,"numeroCarte":112233445566}'}'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:26:46 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-06 02:26:46 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:26:46 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-06 02:26:46 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-06 02:26:46 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:26:46 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-06 02:26:46 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-06 02:26:46 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-06 02:26:46 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:26:46 INFO] [activity:161][39m Probe: paiement-service-must-still-respond
+[36m[2020-04-06 02:26:46 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 06 Apr 2020 01:26:46 GMT'}, 'body': '{"idCommande":1,"montant":3400,"numeroCarte":112233445566}'}'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:26:46 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-06 02:26:46 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-06 02:26:46 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-06 02:26:46 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-06 02:26:46 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-06 02:26:46 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-06 02:26:46 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:26:57 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-06 02:26:57 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-06 02:26:57 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-06 02:26:58 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:26:58 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:26:58 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:26:58 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:26:58 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-06 02:26:58 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:26:58 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:26:58 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-06 02:26:58 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-06 02:26:58 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:26:58 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:26:58 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:26:58 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency starts responding slowly
+[36m[2020-04-06 02:26:58 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:26:58 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:26:58 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-06 02:26:58 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-06 02:26:58 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-06 02:26:58 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-06 02:26:58 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:26:58 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:26:58 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-06 02:27:35 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:27:35 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[33m[2020-04-06 02:27:35 WARNING] [experiment:250][39m Received an exit signal, leaving without applying rollbacks.
+[32m[2020-04-06 02:27:35 INFO] [experiment:273][39m Experiment ended with status: interrupted
+[36m[2020-04-06 02:27:35 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-06 02:27:35 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-06 02:27:35 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:27:38 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-06 02:27:38 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-06 02:27:38 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-06 02:27:39 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:27:39 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-06 02:27:39 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:27:39 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:27:39 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-06 02:27:39 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:27:39 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:27:39 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-06 02:27:39 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-06 02:27:39 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:27:39 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:27:39 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-06 02:27:39 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency starts responding slowly
+[36m[2020-04-06 02:27:39 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-06 02:27:39 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-06 02:27:39 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-06 02:27:39 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-06 02:27:39 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-06 02:27:39 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-06 02:27:39 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:27:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:27:39 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-06 02:28:16 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 06 Apr 2020 01:28:16 GMT'}, 'body': '{"productId":3,"dateCommande":"2015-12-17T00:00:00.000+0000","quantite":55,"commandePayee":false,"total":950.0}'}'
+[36m[2020-04-06 02:28:16 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:28:16 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-06 02:28:16 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-06 02:28:16 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:28:16 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-06 02:28:16 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:28:16 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-06 02:28:16 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-06 02:28:16 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-06 02:28:16 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:28:16 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:28:16 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-06 02:28:16 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-06 02:28:16 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-06 02:28:16 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:28:16 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-06 02:28:16 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-06 02:28:16 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-06 02:28:16 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-06 02:28:16 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-06 02:28:43 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 06 Apr 2020 01:28:43 GMT'}, 'body': '{"productId":3,"dateCommande":"2015-12-17T00:00:00.000+0000","quantite":55,"commandePayee":false,"total":950.0}'}'
+[36m[2020-04-06 02:28:43 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-06 02:28:43 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-06 02:28:43 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-06 02:28:43 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-06 02:28:43 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-06 02:28:43 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-06 02:28:43 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2020-04-06 02:28:43 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-06 02:28:43 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-06 02:28:43 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-06 02:28:43 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-06 02:28:43 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-06 02:40:45 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-06 02:40:45 DEBUG] [cli:71][39m Running command 'report'
+[36m[2020-04-06 02:40:45 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-06 02:40:47 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:40:47 DEBUG] [caching:35][39m Cached 3 activities
+[36m[2020-04-06 02:43:16 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-06 02:43:16 DEBUG] [cli:71][39m Running command 'report'
+[36m[2020-04-06 02:43:16 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-06 02:43:18 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:43:18 DEBUG] [caching:35][39m Cached 3 activities
+[36m[2020-04-06 02:44:34 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-06 02:44:34 DEBUG] [cli:71][39m Running command 'report'
+[36m[2020-04-06 02:44:34 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-06 02:44:36 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:44:36 DEBUG] [caching:35][39m Cached 3 activities
+[36m[2020-04-06 02:58:56 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-06 02:58:56 DEBUG] [cli:71][39m Running command 'report'
+[36m[2020-04-06 02:58:56 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-06 02:58:58 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:58:58 DEBUG] [caching:35][39m Cached 3 activities
+[36m[2020-04-06 02:59:26 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-06 02:59:26 DEBUG] [cli:71][39m Running command 'report'
+[36m[2020-04-06 02:59:26 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-06 02:59:27 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-06 02:59:27 DEBUG] [caching:35][39m Cached 3 activities

@@ -13,10 +13,10 @@
     "steady-state-hypothesis": {
       "probes": [
         {
-          "name": "paiement-service-must-still-respond",
+          "name": "commande-service-must-still-respond",
           "provider": {
             "type": "http",
-            "url": "http://localhost:9003/paiements/1"
+            "url": "http://localhost:9002/commandes/3"
           },
           "tolerance": 200,
           "type": "probe"
@@ -29,7 +29,7 @@
         "name": "enable_chaosmonkey",
         "provider": {
           "arguments": {
-            "base_url": "http://localhost:9002/actuator"
+            "base_url": "http://localhost:9001/actuator"
           },
           "func": "enable_chaosmonkey",
           "module": "chaosspring.actions",
@@ -41,11 +41,11 @@
         "name": "configure_assaults",
         "provider": {
           "arguments": {
-            "base_url": "http://localhost:9002/actuator",
+            "base_url": "http://localhost:9001/actuator",
             "assaults_configuration": {
               "level": 1,
-              "latencyRangeStart": 30000,
-              "latencyRangeEnd": 60000,
+              "latencyRangeStart": 10000,
+              "latencyRangeEnd": 30000,
               "latencyActive": true,
               "exceptionsActive": false,
               "killApplicationActive": false,
@@ -62,7 +62,7 @@
     "rollbacks": [],
     "dry": false
   },
-  "start": "2020-04-06T01:13:49.073952",
+  "start": "2020-04-06T01:27:39.766100",
   "status": "completed",
   "deviated": false,
   "steady_states": {
@@ -71,10 +71,10 @@
       "probes": [
         {
           "activity": {
-            "name": "paiement-service-must-still-respond",
+            "name": "commande-service-must-still-respond",
             "provider": {
               "type": "http",
-              "url": "http://localhost:9003/paiements/1"
+              "url": "http://localhost:9002/commandes/3"
             },
             "tolerance": 200,
             "type": "probe"
@@ -84,14 +84,14 @@
             "headers": {
               "Content-Type": "application/json;charset=UTF-8",
               "Transfer-Encoding": "chunked",
-              "Date": "Mon, 06 Apr 2020 01:13:49 GMT"
+              "Date": "Mon, 06 Apr 2020 01:28:16 GMT"
             },
-            "body": "{\"idCommande\":1,\"montant\":3400,\"numeroCarte\":112233445566}"
+            "body": "{\"productId\":3,\"dateCommande\":\"2015-12-17T00:00:00.000+0000\",\"quantite\":55,\"commandePayee\":false,\"total\":950.0}"
           },
           "status": "succeeded",
-          "start": "2020-04-06T01:13:49.074825",
-          "end": "2020-04-06T01:13:49.088857",
-          "duration": 0.014032,
+          "start": "2020-04-06T01:27:39.766959",
+          "end": "2020-04-06T01:28:16.947153",
+          "duration": 37.180194,
           "tolerance_met": true
         }
       ]
@@ -101,10 +101,10 @@
       "probes": [
         {
           "activity": {
-            "name": "paiement-service-must-still-respond",
+            "name": "commande-service-must-still-respond",
             "provider": {
               "type": "http",
-              "url": "http://localhost:9003/paiements/1"
+              "url": "http://localhost:9002/commandes/3"
             },
             "tolerance": 200,
             "type": "probe"
@@ -114,14 +114,14 @@
             "headers": {
               "Content-Type": "application/json;charset=UTF-8",
               "Transfer-Encoding": "chunked",
-              "Date": "Mon, 06 Apr 2020 01:13:49 GMT"
+              "Date": "Mon, 06 Apr 2020 01:28:43 GMT"
             },
-            "body": "{\"idCommande\":1,\"montant\":3400,\"numeroCarte\":112233445566}"
+            "body": "{\"productId\":3,\"dateCommande\":\"2015-12-17T00:00:00.000+0000\",\"quantite\":55,\"commandePayee\":false,\"total\":950.0}"
           },
           "status": "succeeded",
-          "start": "2020-04-06T01:13:49.106512",
-          "end": "2020-04-06T01:13:49.116018",
-          "duration": 0.009506,
+          "start": "2020-04-06T01:28:16.984843",
+          "end": "2020-04-06T01:28:43.341514",
+          "duration": 26.356671,
           "tolerance_met": true
         }
       ]
@@ -133,7 +133,7 @@
         "name": "enable_chaosmonkey",
         "provider": {
           "arguments": {
-            "base_url": "http://localhost:9002/actuator"
+            "base_url": "http://localhost:9001/actuator"
           },
           "func": "enable_chaosmonkey",
           "module": "chaosspring.actions",
@@ -143,20 +143,20 @@
       },
       "output": "Chaos Monkey is enabled",
       "status": "succeeded",
-      "start": "2020-04-06T01:13:49.089759",
-      "end": "2020-04-06T01:13:49.096140",
-      "duration": 0.006381
+      "start": "2020-04-06T01:28:16.949391",
+      "end": "2020-04-06T01:28:16.970423",
+      "duration": 0.021032
     },
     {
       "activity": {
         "name": "configure_assaults",
         "provider": {
           "arguments": {
-            "base_url": "http://localhost:9002/actuator",
+            "base_url": "http://localhost:9001/actuator",
             "assaults_configuration": {
               "level": 1,
-              "latencyRangeStart": 30000,
-              "latencyRangeEnd": 60000,
+              "latencyRangeStart": 10000,
+              "latencyRangeEnd": 30000,
               "latencyActive": true,
               "exceptionsActive": false,
               "killApplicationActive": false,
@@ -171,12 +171,12 @@
       },
       "output": "Assault config has changed",
       "status": "succeeded",
-      "start": "2020-04-06T01:13:49.096518",
-      "end": "2020-04-06T01:13:49.105886",
-      "duration": 0.009368
+      "start": "2020-04-06T01:28:16.971522",
+      "end": "2020-04-06T01:28:16.984198",
+      "duration": 0.012676
     }
   ],
   "rollbacks": [],
-  "end": "2020-04-06T01:13:49.116932",
-  "duration": 0.04745173454284668
+  "end": "2020-04-06T01:28:43.342505",
+  "duration": 63.5811493396759
 }
