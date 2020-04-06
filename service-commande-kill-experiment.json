@@ -53,7 +53,7 @@
                 "type": "python"
             },
             "type": "action"
-        },
+        }
         
     ],
     "rollbacks": []
