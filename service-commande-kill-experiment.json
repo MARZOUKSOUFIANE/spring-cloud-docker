@@ -12,7 +12,7 @@
                 "name": "paiement-service-must-still-respond",
                 "provider": {
                     "type": "http",
-                    "url": "http://localhost:9003/paiements/1"
+                    "url": "http://localhost:9003/paiements/1/commande"
                 },
                 "tolerance": 200,
                 "type": "probe"

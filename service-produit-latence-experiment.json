@@ -12,7 +12,7 @@
                 "name": "commande-service-must-still-respond",
                 "provider": {
                     "type": "http",
-                    "url": "http://localhost:9002/commandes/3"
+                    "url": "http://localhost:9002/commandes/3/product"
                 },
                 "tolerance": 200,
                 "type": "probe"
