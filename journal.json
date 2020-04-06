@@ -1,0 +1,234 @@
+{
+  "chaoslib-version": "1.8.1",
+  "platform": "Linux-4.18.0-15-generic-x86_64-with-Ubuntu-18.04-bionic",
+  "node": "localhost",
+  "experiment": {
+    "version": "1.0.0",
+    "title": "Setting and triggering service dependency death",
+    "description": "Uses the Spring Chaos Monkey to manipulate a service",
+    "tags": [
+      "service",
+      "spring"
+    ],
+    "steady-state-hypothesis": {
+      "probes": [
+        {
+          "name": "commande-service-must-still-respond",
+          "provider": {
+            "type": "http",
+            "url": "http://localhost:9002/commandes/3"
+          },
+          "tolerance": 200,
+          "type": "probe"
+        }
+      ],
+      "title": "System is healthy"
+    },
+    "method": [
+      {
+        "name": "enable_chaosmonkey",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator"
+          },
+          "func": "enable_chaosmonkey",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      {
+        "name": "configure_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator",
+            "assaults_configuration": {
+              "level": 1,
+              "latencyRangeStart": 30000,
+              "latencyRangeEnd": 60000,
+              "latencyActive": false,
+              "exceptionsActive": false,
+              "killApplicationActive": true,
+              "restartApplicationActive": false
+            }
+          },
+          "func": "change_assaults_configuration",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      {
+        "name": "trigger-kill",
+        "provider": {
+          "type": "http",
+          "url": "http://localhost:8080/"
+        },
+        "type": "probe"
+      }
+    ],
+    "rollbacks": [],
+    "dry": false
+  },
+  "start": "2020-04-06T00:55:35.452808",
+  "status": "completed",
+  "deviated": false,
+  "steady_states": {
+    "before": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "name": "commande-service-must-still-respond",
+            "provider": {
+              "type": "http",
+              "url": "http://localhost:9002/commandes/3"
+            },
+            "tolerance": 200,
+            "type": "probe"
+          },
+          "output": {
+            "status": 200,
+            "headers": {
+              "Content-Type": "application/json;charset=UTF-8",
+              "Transfer-Encoding": "chunked",
+              "Date": "Mon, 06 Apr 2020 00:55:34 GMT"
+            },
+            "body": "{\"productId\":3,\"dateCommande\":\"2015-12-17T00:00:00.000+0000\",\"quantite\":55,\"commandePayee\":false,\"total\":950.0}"
+          },
+          "status": "succeeded",
+          "start": "2020-04-06T00:55:35.453945",
+          "end": "2020-04-06T00:55:35.471936",
+          "duration": 0.017991,
+          "tolerance_met": true
+        }
+      ]
+    },
+    "after": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "name": "commande-service-must-still-respond",
+            "provider": {
+              "type": "http",
+              "url": "http://localhost:9002/commandes/3"
+            },
+            "tolerance": 200,
+            "type": "probe"
+          },
+          "output": {
+            "status": 200,
+            "headers": {
+              "Content-Type": "application/json;charset=UTF-8",
+              "Transfer-Encoding": "chunked",
+              "Date": "Mon, 06 Apr 2020 00:55:40 GMT"
+            },
+            "body": "{\"productId\":3,\"dateCommande\":\"2015-12-17T00:00:00.000+0000\",\"quantite\":55,\"commandePayee\":false,\"total\":950.0}"
+          },
+          "status": "succeeded",
+          "start": "2020-04-06T00:55:35.537910",
+          "end": "2020-04-06T00:55:40.184720",
+          "duration": 4.64681,
+          "tolerance_met": true
+        }
+      ]
+    }
+  },
+  "run": [
+    {
+      "activity": {
+        "name": "enable_chaosmonkey",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator"
+          },
+          "func": "enable_chaosmonkey",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      "output": "Chaos Monkey is enabled",
+      "status": "succeeded",
+      "start": "2020-04-06T00:55:35.472577",
+      "end": "2020-04-06T00:55:35.480176",
+      "duration": 0.007599
+    },
+    {
+      "activity": {
+        "name": "configure_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator",
+            "assaults_configuration": {
+              "level": 1,
+              "latencyRangeStart": 30000,
+              "latencyRangeEnd": 60000,
+              "latencyActive": false,
+              "exceptionsActive": false,
+              "killApplicationActive": true,
+              "restartApplicationActive": false
+            }
+          },
+          "func": "change_assaults_configuration",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      "output": "Assault config has changed",
+      "status": "succeeded",
+      "start": "2020-04-06T00:55:35.480539",
+      "end": "2020-04-06T00:55:35.489807",
+      "duration": 0.009268
+    },
+    {
+      "activity": {
+        "name": "trigger-kill",
+        "provider": {
+          "type": "http",
+          "url": "http://localhost:8080/"
+        },
+        "type": "probe"
+      },
+      "output": {
+        "status": 200,
+        "headers": {
+          "Date": "Mon, 06 Apr 2020 00:55:35 GMT",
+          "Server": "Apache/2.4.38 (Debian)",
+          "X-Powered-By": "PHP/7.4.4",
+          "Set-Cookie": "phpMyAdmin=23de3206742a52c7ae031abe142c4708; path=/; HttpOnly, phpMyAdmin=23de3206742a52c7ae031abe142c4708; path=/; HttpOnly, goto=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/, back=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/, pma_lang=en; expires=Wed, 06-May-2020 00:55:35 GMT; Max-Age=2592000; path=/; HttpOnly, phpMyAdmin=552bb8ab0e90c0ee49897613c16c52e7; path=/; HttpOnly",
+          "Expires": "Mon, 06 Apr 2020 00:55:35 +0000",
+          "Cache-Control": "no-store, no-cache, must-revalidate,  pre-check=0, post-check=0, max-age=0",
+          "Last-Modified": "Mon, 06 Apr 2020 00:55:35 +0000",
+          "X-ob_mode": "1",
+          "X-Frame-Options": "DENY",
+          "Referrer-Policy": "no-referrer",
+          "Content-Security-Policy": "default-src 'self' ;script-src 'self' 'unsafe-inline' 'unsafe-eval' ;style-src 'self' 'unsafe-inline' ;img-src 'self' data:  *.tile.openstreetmap.org;object-src 'none';",
+          "X-Content-Security-Policy": "default-src 'self' ;options inline-script eval-script;referrer no-referrer;img-src 'self' data:  *.tile.openstreetmap.org;object-src 'none';",
+          "X-WebKit-CSP": "default-src 'self' ;script-src 'self'  'unsafe-inline' 'unsafe-eval';referrer no-referrer;style-src 'self' 'unsafe-inline' ;img-src 'self' data:  *.tile.openstreetmap.org;object-src 'none';",
+          "X-XSS-Protection": "1; mode=block",
+          "X-Content-Type-Options": "nosniff",
+          "X-Permitted-Cross-Domain-Policies": "none",
+          "X-Robots-Tag": "noindex, nofollow",
+          "Pragma": "no-cache",
+          "Content-Encoding": "gzip",
+          "Vary": "Accept-Encoding",
+          "Content-Length": "3550",
+          "Keep-Alive": "timeout=5, max=100",
+          "Connection": "Keep-Alive",
+          "Content-Type": "text/html; charset=utf-8"
+        },
+        "body": "<!doctype html>\n<html lang=\"en\" dir=\"ltr\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"referrer\" content=\"no-referrer\">\n  <meta name=\"robots\" content=\"noindex,nofollow\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\">\n  <style id=\"cfs-style\">html{display: none;}</style>\n  <link rel=\"icon\" href=\"favicon.ico\" type=\"image/x-icon\">\n  <link rel=\"shortcut icon\" href=\"favicon.ico\" type=\"image/x-icon\">\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"./themes/pmahomme/jquery/jquery-ui.css\">\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"js/vendor/codemirror/lib/codemirror.css?v=5.0.2\">\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"js/vendor/codemirror/addon/hint/show-hint.css?v=5.0.2\">\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"js/vendor/codemirror/addon/lint/lint.css?v=5.0.2\">\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"./themes/pmahomme/css/theme.css?v=5.0.2&nocache=4754296135ltr&server=1\">\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"./themes/pmahomme/css/printview.css?v=5.0.2\" media=\"print\" id=\"printcss\">\n    <title>phpMyAdmin</title>\n    <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/jquery/jquery.min.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/jquery/jquery-migrate.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/whitelist.php?v=5.0.2&amp;lang=en\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/sprintf.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/ajax.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/keyhandler.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/bootstrap/bootstrap.bundle.min.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/jquery/jquery-ui.min.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/js.cookie.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/jquery/jquery.mousewheel.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/jquery/jquery.event.drag-2.2.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/jquery/jquery.validate.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/jquery/jquery-ui-timepicker-addon.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/jquery/jquery.ba-hashchange-1.3.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/jquery/jquery.debounce-1.0.5.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/menu_resizer.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/cross_framing_protection.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/rte.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/tracekit.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/error_report.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/messages.php?l=en&amp;v=5.0.2&amp;lang=en\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/config.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/doclinks.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/functions.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/navigation.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/indexes.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/common.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/page_settings.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/drag_drop_import.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/shortcuts_handler.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/codemirror/lib/codemirror.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/codemirror/mode/sql/sql.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/codemirror/addon/runmode/runmode.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/codemirror/addon/hint/show-hint.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/codemirror/addon/hint/sql-hint.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/vendor/codemirror/addon/lint/lint.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/codemirror/addon/lint/sql-lint.js?v=5.0.2\"></script>\n  <script data-cfasync=\"false\" type=\"text/javascript\" src=\"js/console.js?v=5.0.2\"></script>\n\n<script data-cfasync=\"false\" type=\"text/javascript\">\n// <![CDATA[\nCommonParams.setAll({common_query:\"?lang=en\",opendb_url:\"db_structure.php\",lang:\"en\",server:\"1\",table:\"\",db:\"\",token:\"72585c606c562648686f54243252643a\",text_dir:\"ltr\",show_databases_navigation_as_tree:true,pma_text_default_tab:\"Browse\",pma_text_left_default_tab:\"Structure\",pma_text_left_default_tab2:false,LimitChars:\"50\",pftext:\"\",confirm:true,LoginCookieValidity:\"1440\",session_gc_maxlifetime:\"1440\",logged_in:false,is_https:false,rootPath:\"/\",arg_separator:\"&\",PMA_VERSION:\"5.0.2\",auth_type:\"cookie\",user:\"root\"});\nConsoleEnterExecutes=false\n\nAJAX.scriptHandler\n  .add('vendor/jquery/jquery.min.js', 0)\n  .add('vendor/jquery/jquery-migrate.js', 0)\n  .add('whitelist.php', 1)\n  .add('vendor/sprintf.js', 1)\n  .add('ajax.js', 0)\n  .add('keyhandler.js', 1)\n  .add('vendor/bootstrap/bootstrap.bundle.min.js', 1)\n  .add('vendor/jquery/jquery-ui.min.js', 0)\n  .add('vendor/js.cookie.js', 1)\n  .add('vendor/jquery/jquery.mousewheel.js', 0)\n  .add('vendor/jquery/jquery.event.drag-2.2.js', 0)\n  .add('vendor/jquery/jquery.validate.js', 0)\n  .add('vendor/jquery/jquery-ui-timepicker-addon.js', 0)\n  .add('vendor/jquery/jquery.ba-hashchange-1.3.js', 0)\n  .add('vendor/jquery/jquery.debounce-1.0.5.js', 0)\n  .add('menu_resizer.js', 1)\n  .add('cross_framing_protection.js', 0)\n  .add('rte.js', 1)\n  .add('vendor/tracekit.js', 1)\n  .add('error_report.js', 1)\n  .add('messages.php', 0)\n  .add('config.js', 1)\n  .add('doclinks.js', 1)\n  .add('functions.js', 1)\n  .add('navigation.js', 1)\n  .add('indexes.js', 1)\n  .add('common.js', 1)\n  .add('page_settings.js', 1)\n  .add('drag_drop_import.js', 1)\n  .add('shortcuts_handler.js', 1)\n  .add('vendor/codemirror/lib/codemirror.js', 0)\n  .add('vendor/codemirror/mode/sql/sql.js', 0)\n  .add('vendor/codemirror/addon/runmode/runmode.js', 0)\n  .add('vendor/codemirror/addon/hint/show-hint.js', 0)\n  .add('vendor/codemirror/addon/hint/sql-hint.js', 0)\n  .add('vendor/codemirror/addon/lint/lint.js', 0)\n  .add('codemirror/addon/lint/sql-lint.js', 0)\n  .add('console.js', 1)\n;\n$(function() {\n        AJAX.fireOnload('whitelist.php');\n      AJAX.fireOnload('vendor/sprintf.js');\n        AJAX.fireOnload('keyhandler.js');\n      AJAX.fireOnload('vendor/bootstrap/bootstrap.bundle.min.js');\n        AJAX.fireOnload('vendor/js.cookie.js');\n                  AJAX.fireOnload('menu_resizer.js');\n        AJAX.fireOnload('rte.js');\n      AJAX.fireOnload('vendor/tracekit.js');\n      AJAX.fireOnload('error_report.js');\n        AJAX.fireOnload('config.js');\n      AJAX.fireOnload('doclinks.js');\n      AJAX.fireOnload('functions.js');\n      AJAX.fireOnload('navigation.js');\n      AJAX.fireOnload('indexes.js');\n      AJAX.fireOnload('common.js');\n      AJAX.fireOnload('page_settings.js');\n      AJAX.fireOnload('drag_drop_import.js');\n      AJAX.fireOnload('shortcuts_handler.js');\n                    AJAX.fireOnload('console.js');\n  });\n// ]]>\n</script>\n\n  <noscript><style>html{display:block}</style></noscript>\n</head>\n<body id=loginform>\n  \n  \n  \n\n  \n  \n  \n  \n\n  <div id=\"page_content\">\n    \n\n  \n<div class=\"container\">\n<a href=\"./url.php?url=https%3A%2F%2Fwww.phpmyadmin.net%2F\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"logo\">\n<img src=\"./themes/pmahomme/img/logo_right.png\" id=\"imLogo\" name=\"imLogo\" alt=\"phpMyAdmin\" border=\"0\">\n</a>\n<h1>Welcome to <bdo dir=\"ltr\" lang=\"en\">phpMyAdmin</bdo></h1>\n\n<noscript>\n<div class=\"error\"><img src=\"themes/dot.gif\" title=\"\" alt=\"\" class=\"icon ic_s_error\"> Javascript must be enabled past this point!</div>\n</noscript>\n\n<div class=\"hide\" id=\"js-https-mismatch\">\n<div class=\"error\"><img src=\"themes/dot.gif\" title=\"\" alt=\"\" class=\"icon ic_s_error\"> There is a mismatch between HTTPS indicated on the server and client. This can lead to a non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly.</div>\n</div>\n<div class='hide js-show'>    <form method=\"get\" action=\"index.php\" class=\"disableAjax\">\n    <input type=\"hidden\" name=\"db\" value=\"\"><input type=\"hidden\" name=\"table\" value=\"\"><input type=\"hidden\" name=\"lang\" value=\"en\"><input type=\"hidden\" name=\"token\" value=\"72585c606c562648686f54243252643a\">\n\n            <fieldset>\n            <legend lang=\"en\" dir=\"ltr\">Language</legend>\n    \n    <select name=\"lang\" class=\"autosubmit\" lang=\"en\" dir=\"ltr\" id=\"sel-lang\">\n\n                    <option value=\"sq\">\n        Shqip - Albanian\n        </option>\n                    <option value=\"ar\">\n        &#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577; - Arabic\n        </option>\n                    <option value=\"hy\">\n        Հայերէն - Armenian\n        </option>\n                    <option value=\"az\">\n        Az&#601;rbaycanca - Azerbaijani\n        </option>\n                    <option value=\"bn\">\n        বাংলা - Bangla\n        </option>\n                    <option value=\"be\">\n        &#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1072;&#1103; - Belarusian\n        </option>\n                    <option value=\"bg\">\n        &#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080; - Bulgarian\n        </option>\n                    <option value=\"ca\">\n        Catal&agrave; - Catalan\n        </option>\n                    <option value=\"zh_cn\">\n        &#20013;&#25991; - Chinese simplified\n        </option>\n                    <option value=\"zh_tw\">\n        &#20013;&#25991; - Chinese traditional\n        </option>\n                    <option value=\"cs\">\n        Čeština - Czech\n        </option>\n                    <option value=\"da\">\n        Dansk - Danish\n        </option>\n                    <option value=\"nl\">\n        Nederlands - Dutch\n        </option>\n                    <option value=\"en\"                selected=\"selected\">\n        English\n        </option>\n                    <option value=\"en_gb\">\n        English (United Kingdom)\n        </option>\n                    <option value=\"et\">\n        Eesti - Estonian\n        </option>\n                    <option value=\"fi\">\n        Suomi - Finnish\n        </option>\n                    <option value=\"fr\">\n        Fran&ccedil;ais - French\n        </option>\n                    <option value=\"gl\">\n        Galego - Galician\n        </option>\n                    <option value=\"de\">\n        Deutsch - German\n        </option>\n                    <option value=\"el\">\n        &Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&#940; - Greek\n        </option>\n                    <option value=\"he\">\n        &#1506;&#1489;&#1512;&#1497;&#1514; - Hebrew\n        </option>\n                    <option value=\"hu\">\n        Magyar - Hungarian\n        </option>\n                    <option value=\"id\">\n        Bahasa Indonesia - Indonesian\n        </option>\n                    <option value=\"ia\">\n        Interlingua\n        </option>\n                    <option value=\"it\">\n        Italiano - Italian\n        </option>\n                    <option value=\"ja\">\n        &#26085;&#26412;&#35486; - Japanese\n        </option>\n                    <option value=\"kk\">\n        Қазақ - Kazakh\n        </option>\n                    <option value=\"ko\">\n        &#54620;&#44397;&#50612; - Korean\n        </option>\n                    <option value=\"lt\">\n        Lietuvi&#371; - Lithuanian\n        </option>\n                    <option value=\"nb\">\n        Norsk - Norwegian\n        </option>\n                    <option value=\"pl\">\n        Polski - Polish\n        </option>\n                    <option value=\"pt\">\n        Portugu&ecirc;s - Portuguese\n        </option>\n                    <option value=\"pt_br\">\n        Portugu&ecirc;s (Brasil) - Portuguese (Brazil)\n        </option>\n                    <option value=\"ro\">\n        Rom&acirc;n&#259; - Romanian\n        </option>\n                    <option value=\"ru\">\n        &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081; - Russian\n        </option>\n                    <option value=\"sr@latin\">\n        Srpski - Serbian (latin)\n        </option>\n                    <option value=\"si\">\n        &#3523;&#3538;&#3458;&#3524;&#3517; - Sinhala\n        </option>\n                    <option value=\"sk\">\n        Sloven&#269;ina - Slovak\n        </option>\n                    <option value=\"sl\">\n        Sloven&scaron;&#269;ina - Slovenian\n        </option>\n                    <option value=\"es\">\n        Espa&ntilde;ol - Spanish\n        </option>\n                    <option value=\"sv\">\n        Svenska - Swedish\n        </option>\n                    <option value=\"tr\">\n        T&uuml;rk&ccedil;e - Turkish\n        </option>\n                    <option value=\"uk\">\n        &#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072; - Ukrainian\n        </option>\n                    <option value=\"vi\">\n        Tiếng Việt - Vietnamese\n        </option>\n    \n    </select>\n\n            </fieldset>\n    \n    </form>\n</div>\n    <br>\n    <!-- Login form -->\n    <form method=\"post\" id=\"login_form\" action=\"index.php\" name=\"login_form\" class=\"disableAjax hide login js-show\">\n        <fieldset>\n        <legend><input type=\"hidden\" name=\"set_session\" value=\"552bb8ab0e90c0ee49897613c16c52e7\">Log in<a href=\"doc/html/index.html\" target=\"documentation\"><img src=\"themes/dot.gif\" title=\"Documentation\" alt=\"Documentation\" class=\"icon ic_b_help\"></a></legend><div class=\"item\">\n                <label for=\"input_username\">Username:</label>\n                <input type=\"text\" name=\"pma_username\" id=\"input_username\" value=\"\" size=\"24\" class=\"textfield\">\n            </div>\n            <div class=\"item\">\n                <label for=\"input_password\">Password:</label>\n                <input type=\"password\" name=\"pma_password\" id=\"input_password\" value=\"\" size=\"24\" class=\"textfield\">\n            </div>    <input type=\"hidden\" name=\"server\" value=\"1\"></fieldset><fieldset class=\"tblFooters\"><input class=\"btn btn-primary\" value=\"Go\" type=\"submit\" id=\"input_go\"><input type=\"hidden\" name=\"target\" value=\"index.php\"><input type=\"hidden\" name=\"lang\" value=\"en\"><input type=\"hidden\" name=\"token\" value=\"72585c606c562648686f54243252643a\"></fieldset>\n    </form></div>\n  </div>\n  </body>\n</html>\n"
+      },
+      "status": "succeeded",
+      "start": "2020-04-06T00:55:35.490061",
+      "end": "2020-04-06T00:55:35.537461",
+      "duration": 0.0474
+    }
+  ],
+  "rollbacks": [],
+  "end": "2020-04-06T00:55:40.186727",
+  "duration": 4.740414619445801
+}
