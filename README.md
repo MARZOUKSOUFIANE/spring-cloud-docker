@@ -107,13 +107,13 @@ Pour utiliser le projet il faut procéder par:
 
  - 1. Cloner le projet : ` git clone https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture.git `
  - 2. Généner le build de chaque microservice.
- - 3. Lancer l'architecture avec docker-compose `sudo docker-compose up`
+ - 3. Lancer l'architecture avec docker-compose ` docker-compose up`
 
 > NB: la version dockerisée du projet lance les microservices avec le profile Spring `docker` afin de préserver la configuration normale et la configuration relative au docker, ce profile se lance automatiquement au moment du build des images docker. 
 
 Pour visualiser les logs il faut utiliser la stack ELK:
 
-- créer un fichier de logs et mapper les logs vers ce ficheir `sudo docker-compose logs > [path <file>.log]`
+- créer un fichier de logs et mapper les logs vers ce ficheir `docker-compose logs > [path <file>.log]`
 - télécharger elasticsearch et la lancer graçe à la commande `./bin/elasticsearch`
 - télécharger logstash , et créer un fichier `logstash.conf`( [exemple](https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture/-/blob/master/Docker-ELK/logstash/pipeline/logstash.conf) )  qui contient le pipeline logstash(input, filter, output) et la lancer logstash graçce à la commande `./bin/logstash -f logstash.conf`
 - télécharger kibana et la lancer graçe à la commande `./bin/kibana`, et consulter `http://localhost:5601` pour visualiser les logs.
@@ -122,7 +122,7 @@ Pour visualiser les logs il faut utiliser la stack ELK:
    <img src="https://drive.google.com/uc?export=view&id=1QTT0RvbkNyjNX6nmnIQxoB6AXnnSnW7y" width="800" height="600" />
 
 
-> Le projet contient aussi la version de ELK avec docker , il suffit juste d'accéder au dossier `Docker-elk` et lancer `sudo docker-compose up` 
+> Le projet contient aussi la version de ELK avec docker , il suffit juste d'accéder au dossier `Docker-elk` et lancer `docker-compose up` 
 
 
 
