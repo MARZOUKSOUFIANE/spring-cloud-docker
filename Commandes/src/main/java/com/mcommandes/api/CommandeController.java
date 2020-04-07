@@ -4,11 +4,14 @@ import com.mcommandes.dto.ProductDto;
 import com.mcommandes.dto.CommandeDto;
 import com.mcommandes.model.Commande;
 import com.mcommandes.service.CommandeService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
+
+import java.util.*;
 
 @RestController
 public class CommandeController {
@@ -31,6 +34,9 @@ public class CommandeController {
         return commandeService.getCommandeById(id);
     }
 
+    @HystrixCommand(fallbackMethod = "commandeProductFallback", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "10000")
+    })
     @GetMapping(value = "/commandes/{id}/product")
     public ProductDto getCommandeProduct(@PathVariable int id){
         logger.info("recuperer produit de la commande de l'ID :{}",id);
@@ -49,6 +55,11 @@ public class CommandeController {
         CommandeDto CommandeModifie=commandeService.updateCommande(id,commande);
         logger.info("modification d'une commande pour le produit de l'ID :{}",CommandeModifie.productId);
         return CommandeModifie;
+    }
+
+    public ProductDto commandeProductFallback(int id) {
+
+        return new ProductDto();
     }
 
 }
