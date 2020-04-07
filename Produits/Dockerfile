@@ -3,6 +3,10 @@ VOLUME /tmp
 ADD target/*.jar /app.jar
 ADD wait-for-it.sh ./wait-for-it.sh
 RUN chmod 777 ./wait-for-it.sh
+<<<<<<< HEAD
 CMD ["./wait-for-it.sh", "eureka:8761"]
 CMD ["./wait-for-it.sh", "mysql-container:3306", "--","java", "-jar","-Dspring.profiles.active=docker","/app.jar"]
+=======
+CMD ["./wait-for-it.sh", "mysql-container:3306" ,"--","java", "-jar","-Dspring.profiles.active=chaos-monkey","/app.jar"]
+>>>>>>> 20069d6... Add parent pom.xml
 EXPOSE 9001
