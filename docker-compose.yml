@@ -1,40 +1,5 @@
 version: '3'
 services:
-  mysql-container:
-    image: mysql
-    environment: 
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db_produits
-    ports:
-      - "3306:3306"
-    volumes:
-      - /containers/mysql/db_produits
-    networks: 
-    - web
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    environment:
-      PMA_HOST: mysql-container
-      PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: root
-    ports:
-    - "8080:80"
-    restart: always
-    depends_on: 
-    - mysql-container
-    networks: 
-    - web
-
-  zipkin:
-    build:
-      context: ./Edges/zipkin/
-    image: zipkin
-    ports:
-      - 9411:9411
-    networks: 
-    - web
-
   config:
     build:
       context: ./Edges/config-service/
@@ -64,28 +29,9 @@ services:
       - 8087:8087
     depends_on: 
     - config
+    - eureka
     volumes:
       - /containers/spring-admin
-    networks: 
-    - web
-
-  produits:
-    build:
-      context: ./Produits
-    depends_on:
-      - mysql-container
-      - config
-      - eureka
-    ports:
-      - 9001:9001
-    environment:
-      DATABASE_HOST: mysql-container
-      DATABASE_USER: root
-      DATABASE_password: root
-      DATABASE_NAME: db_produits
-      DATABASE_PORT: 3306
-    volumes:
-      - /containers/produits
     networks: 
     - web
 
@@ -166,6 +112,64 @@ services:
       - /containers/springcloudgateway-client
     networks: 
     - web
+
+  mysql-container:
+    image: mysql
+    depends_on:
+      - eureka
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_produits
+    ports:
+      - "3306:3306"
+    volumes:
+      - /containers/mysql/db_produits
+    networks:
+      - web
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql-container
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8080:80"
+    restart: always
+    depends_on:
+      - mysql-container
+    networks:
+      - web
+
+  produits:
+    build:
+      context: ./Produits
+    depends_on:
+      - mysql-container
+      - config
+      - eureka
+    ports:
+      - 9001:9001
+    environment:
+      DATABASE_HOST: mysql-container
+      DATABASE_USER: root
+      DATABASE_password: root
+      DATABASE_NAME: db_produits
+      DATABASE_PORT: 3306
+    volumes:
+      - /containers/produits
+    networks:
+      - web
+
+  zipkin:
+    build:
+      context: ./Edges/zipkin/
+    image: zipkin
+    ports:
+      - 9411:9411
+    networks:
+      - web
+    
 
 
 
