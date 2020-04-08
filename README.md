@@ -106,7 +106,12 @@ cette version du projet intègre **Docker** (`Dockerfile` et de `docker-compose`
 Pour utiliser le projet il faut procéder par:
 
  - 1. Cloner le projet : ` git clone https://gitlab.com/soufianeMARZOUK/chaos-engineering-architecture.git `
- - 2. Généner le build de chaque microservice.
+ 
+ - 2. Accéder au projet et généner les build de tous les microservices à la fois graçe à la commande ` mvn clean package ` 
+ 
+
+> NB: le projet contient un pom.xml parent déclarant tous les microservices, ce qui permet de générer les build d'un seul coup avec ` mvn clean package ` 
+
  - 3. Lancer l'architecture avec docker-compose ` docker-compose up`
 
 > NB: la version dockerisée du projet lance les microservices avec le profile Spring `docker` afin de préserver la configuration normale et la configuration relative au docker, ce profile se lance automatiquement au moment du build des images docker. 
