@@ -19,7 +19,7 @@ Ainsi, quand nous mettons à jour un fichier de configuration dans le dépôt GI
 version, obligeant les autres Microservices concernés à la prendre en compte à la volée.
 
 `- Spring Cloud Netflix Eureka.`
-
+ 
 C'est un microservice annuaire qui contient des informations sur les différents microservices de l’application pour faciliter la communication entre ces derniers.
 Les services s'enregistrent auprès de l'annuaire,Cela simplifie grandement les communications, car il suffit juste de connaitre le nom du service voulu pour pouvoir le consulter.
 
