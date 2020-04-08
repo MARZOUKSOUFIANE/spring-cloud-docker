@@ -46,7 +46,12 @@
                         "latencyActive": false,
                         "exceptionsActive": true,
                         "killApplicationActive": false,
-                        "restartApplicationActive": false
+                        "restartApplicationActive": false,
+			"exception": {
+			    "type": "java.lang.IllegalArgumentException",
+			    "arguments": [{
+			      "className": "java.lang.String",
+			      "value": "custom illegal argument exception"}] }
                     }
                 },
                 "func": "change_assaults_configuration",
@@ -68,5 +73,39 @@
             "type": "probe"
         }
     ],
-    "rollbacks": []
+    "rollbacks": [
+        {
+            "name": "configure_assaults", 
+            "provider": {
+                "arguments": {
+                    "base_url": "http://localhost:9001/actuator",
+                    "assaults_configuration": {
+                        "level": 1,
+                        "latencyRangeStart": 10000,
+                        "latencyRangeEnd": 10000,
+                        "latencyActive": false,
+                        "exceptionsActive": false,
+                        "killApplicationActive": false,
+                        "restartApplicationActive": false
+                    }
+                },
+                "func": "change_assaults_configuration",
+                "module": "chaosspring.actions",
+                "type": "python"
+            },
+            "type": "action"
+        },
+        {
+            "name": "disable_chaosmonkey",
+            "provider": {
+                "arguments": {
+                    "base_url": "http://localhost:9001/actuator"
+                },
+                "func": "disable_chaosmonkey",
+                "module": "chaosspring.actions",
+                "type": "python"
+            },
+            "type": "action"
+        }
+    ]
 }

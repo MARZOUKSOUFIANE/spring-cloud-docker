@@ -83,7 +83,7 @@
                         "killApplicationActive": false,
                         "restartApplicationActive": false
                     }
-                },
+                }, 
                 "func": "change_assaults_configuration",
                 "module": "chaosspring.actions",
                 "type": "python"

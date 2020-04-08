@@ -46,7 +46,12 @@
                         "latencyActive": false,
                         "exceptionsActive": true,
                         "killApplicationActive": false,
-                        "restartApplicationActive": false
+                        "restartApplicationActive": false,
+			"exception": {
+			    "type": "java.lang.IllegalArgumentException",
+			    "arguments": [{
+			      "className": "java.lang.String",
+			      "value": "custom illegal argument exception"}] }
                     }
                 },
                 "func": "change_assaults_configuration",
