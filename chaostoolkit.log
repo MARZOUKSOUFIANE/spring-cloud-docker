@@ -1972,3 +1972,137 @@
 [36m[2020-04-06 12:43:01 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
 [36m[2020-04-06 12:43:01 DEBUG] [__init__:72][39m Cleaning up controls
 [36m[2020-04-06 12:43:01 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-07 23:00:37 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-07 23:00:37 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-07 23:00:37 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-07 23:00:39 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-07 23:00:39 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-07 23:00:39 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-07 23:00:39 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-07 23:00:39 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-07 23:00:39 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-07 23:00:39 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-07 23:00:39 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-07 23:00:39 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-07 23:00:39 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-07 23:00:39 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency starts responding slowly
+[36m[2020-04-07 23:00:39 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-07 23:00:39 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-07 23:00:39 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-07 23:00:39 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:00:39 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-07 23:00:39 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 07 Apr 2020 22:00:39 GMT'}, 'body': '{"titre":"Flacon à frotter avec un génie dedans","description":"Vous donne droit à l\'\'équivalent de 3/0 voeux","image":"data:image/jpeg;base64,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","prix":1200.0}'}'
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-07 23:00:39 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-07 23:00:39 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:00:39 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-07 23:00:39 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-07 23:00:39 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:00:39 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-07 23:00:39 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-07 23:00:39 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-07 23:00:39 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-07 23:00:39 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:00:39 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-07 23:00:43 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 07 Apr 2020 22:00:43 GMT'}, 'body': '{"titre":null,"description":null,"image":null,"prix":null}'}'
+[36m[2020-04-07 23:00:43 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-07 23:00:43 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-07 23:00:43 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-07 23:00:43 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-07 23:00:43 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-07 23:00:43 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-07 23:00:43 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2020-04-07 23:00:43 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-07 23:00:43 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-07 23:00:43 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-07 23:00:43 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-07 23:00:43 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-07 23:09:06 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-07 23:09:06 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-07 23:09:06 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-07 23:09:08 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-07 23:09:08 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-07 23:09:08 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-07 23:09:08 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-07 23:09:08 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-07 23:09:08 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-07 23:09:08 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-07 23:09:08 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-07 23:09:08 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-07 23:09:08 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-07 23:09:08 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-07 23:09:08 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-07 23:09:08 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency starts responding slowly
+[36m[2020-04-07 23:09:08 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-07 23:09:08 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-07 23:09:08 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-07 23:09:08 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-07 23:09:08 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-07 23:09:08 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-07 23:09:08 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-07 23:09:08 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:09:08 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-07 23:09:10 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 07 Apr 2020 22:09:10 GMT'}, 'body': '{"titre":null,"description":null,"image":null,"prix":null}'}'
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-07 23:09:10 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-07 23:09:10 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:09:10 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-07 23:09:10 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-07 23:09:10 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:09:10 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-07 23:09:10 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-07 23:09:10 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:09:10 INFO] [activity:161][39m Probe: get_configured_assaults
+[36m[2020-04-07 23:09:10 DEBUG] [python:36][39m Activity 'get_configured_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/probes.py'
+[36m[2020-04-07 23:09:10 DEBUG] [activity:179][39m   => succeeded with '{'level': 1, 'latencyRangeStart': 30000, 'latencyRangeEnd': 60000, 'latencyActive': True, 'exceptionsActive': False, 'exception': {'type': None, 'arguments': None}, 'killApplicationActive': False, 'memoryActive': False, 'memoryMillisecondsHoldFilledMemory': 90000, 'memoryMillisecondsWaitNextIncrease': 1000, 'memoryFillIncrementFraction': 0.15, 'memoryFillTargetFraction': 0.25, 'runtimeAssaultCronExpression': 'OFF', 'watchedCustomServices': None, 'proxyTargetClass': True, 'targetSource': {'target': {'level': 1, 'latencyRangeStart': 30000, 'latencyRangeEnd': 60000, 'latencyActive': True, 'exceptionsActive': False, 'exception': {'type': None, 'arguments': None}, 'killApplicationActive': False, 'memoryActive': False, 'memoryMillisecondsHoldFilledMemory': 90000, 'memoryMillisecondsWaitNextIncrease': 1000, 'memoryFillIncrementFraction': 0.15, 'memoryFillTargetFraction': 0.25, 'runtimeAssaultCronExpression': 'OFF', 'watchedCustomServices': None}, 'targetClass': 'de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties', 'static': True}, 'targetClass': 'de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties', 'proxiedInterfaces': [], 'advisors': [{'order': 2147483647, 'advice': {}, 'pointcut': {'classFilter': {}, 'methodMatcher': {'runtime': False}}, 'perInstance': True}], 'exposeProxy': False, 'preFiltered': False, 'frozen': False}'
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-07 23:09:10 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-07 23:09:10 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:09:10 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-07 23:09:12 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 07 Apr 2020 22:09:12 GMT'}, 'body': '{"titre":null,"description":null,"image":null,"prix":null}'}'
+[36m[2020-04-07 23:09:12 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-07 23:09:12 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-07 23:09:12 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-07 23:09:12 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-07 23:09:12 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-07 23:09:12 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-07 23:09:12 INFO] [rollback:28][39m Rollback: configure_assaults
+[36m[2020-04-07 23:09:12 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:09:12 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-07 23:09:12 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-07 23:09:12 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-07 23:09:12 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:09:12 INFO] [rollback:28][39m Rollback: disable_chaosmonkey
+[36m[2020-04-07 23:09:12 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-07 23:09:12 INFO] [activity:161][39m Action: disable_chaosmonkey
+[36m[2020-04-07 23:09:12 DEBUG] [python:36][39m Activity 'disable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-07 23:09:12 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2020-04-07 23:09:12 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-07 23:09:12 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-07 23:09:12 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-07 23:09:12 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-07 23:09:12 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-07 23:09:12 DEBUG] [caching:42][39m Clearing activities cache
