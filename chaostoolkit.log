@@ -1,0 +1,54 @@
+[36m[2020-04-09 21:42:01 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-09 21:42:01 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-09 21:42:01 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-09 21:42:03 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-09 21:42:03 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-09 21:42:03 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-09 21:42:03 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[31m[2020-04-09 21:42:03 ERROR] [cli:109][39m Path "service-produit-latence-experiment-extended.json" does not exist.
+[36m[2020-04-09 21:42:03 DEBUG] [cli:110][39m Path "service-produit-latence-experiment-extended.json" does not exist.
+[36m[2020-04-09 21:42:04 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-09 21:42:04 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-09 21:42:04 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-09 21:42:06 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-09 21:42:06 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-09 21:42:06 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-09 21:42:06 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[31m[2020-04-09 21:42:06 ERROR] [cli:109][39m Path "service-produit-exception-experiment-extended.json" does not exist.
+[36m[2020-04-09 21:42:06 DEBUG] [cli:110][39m Path "service-produit-exception-experiment-extended.json" does not exist.
+[36m[2020-04-09 21:42:06 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-09 21:42:06 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-09 21:42:06 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-09 21:42:08 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-09 21:42:08 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-09 21:42:08 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-09 21:42:08 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[31m[2020-04-09 21:42:08 ERROR] [cli:109][39m Path "service-produit-custom-exception-experiment-extended.json" does not exist.
+[36m[2020-04-09 21:42:08 DEBUG] [cli:110][39m Path "service-produit-custom-exception-experiment-extended.json" does not exist.
+[36m[2020-04-09 21:42:09 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-09 21:42:09 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-09 21:42:09 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-09 21:42:10 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-09 21:42:10 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-09 21:42:10 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-09 21:42:10 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[31m[2020-04-09 21:42:10 ERROR] [cli:109][39m Path "service-produit-kill-experiment-extended.json" does not exist.
+[36m[2020-04-09 21:42:10 DEBUG] [cli:110][39m Path "service-produit-kill-experiment-extended.json" does not exist.
+[36m[2020-04-09 21:42:11 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-09 21:42:11 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-09 21:42:11 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-09 21:42:12 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-09 21:42:12 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-09 21:42:12 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-09 21:42:12 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[31m[2020-04-09 21:42:12 ERROR] [cli:109][39m Path "service-commande-latence-experiment-extended.json" does not exist.
+[36m[2020-04-09 21:42:12 DEBUG] [cli:110][39m Path "service-commande-latence-experiment-extended.json" does not exist.
+[36m[2020-04-09 21:42:13 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-09 21:42:13 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-09 21:42:13 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-09 21:42:15 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-09 21:42:15 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-09 21:42:15 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-09 21:42:15 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[31m[2020-04-09 21:42:15 ERROR] [cli:109][39m Path "service-commande-kill-experiment-extended.json" does not exist.
+[36m[2020-04-09 21:42:15 DEBUG] [cli:110][39m Path "service-commande-kill-experiment-extended.json" does not exist.
