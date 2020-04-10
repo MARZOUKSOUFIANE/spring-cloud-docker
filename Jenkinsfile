@@ -19,7 +19,7 @@ pipeline {
 		sh 'docker-compose down'
       		echo "Running tests in a fully containerized environment..."
                 sh 'docker-compose up -d'
-		sh 'bash wait-for-it.sh http://localhost:9001/commandes -- echo service commande is up'
+		sh 'bash wait-for-it.sh http://localhost:9002/commandes -- echo service commande is up'
             }
         }
         stage('Test-chaos') { 
