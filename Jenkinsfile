@@ -29,9 +29,9 @@ pipeline {
                     sh 'pip install chaostoolkit'
                     sh 'pip install -U chaostoolkit-spring'
                     sh 'chaos --version'
-                    sh 'sudo ./watchers-scripts/activate-all-watcher.sh'
-                    sh 'sudo ./chaos-expérimentations/experiments.sh'
-                    sh 'sudo ./watchers-scripts/disactivate-all-watcher.sh'
+                    sh './watchers-scripts/activate-all-watcher.sh'
+                    sh './chaos-expérimentations/experiments.sh'
+                    sh './watchers-scripts/disactivate-all-watcher.sh'
                     }
                 }
             }
