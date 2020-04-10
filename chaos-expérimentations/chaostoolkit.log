@@ -4920,3 +4920,37 @@
 [36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
 [36m[2020-04-10 14:26:45 DEBUG] [__init__:72][39m Cleaning up controls
 [36m[2020-04-10 14:26:45 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 17:02:38 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-10 17:02:38 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-10 17:02:38 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-10 17:02:40 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-10 17:02:40 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-10 17:02:40 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 17:02:40 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 17:02:40 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 17:02:40 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-10 17:02:40 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-10 17:02:40 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 17:02:40 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 17:02:40 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-10 17:02:40 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-10 17:02:40 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 17:02:40 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 17:02:40 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-10 17:02:40 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency daeth
+[36m[2020-04-10 17:02:40 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 17:02:40 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 17:02:40 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-10 17:02:40 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-10 17:02:40 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-10 17:02:40 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 17:02:40 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 17:02:40 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 17:02:40 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-10 17:02:40 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 17:02:40 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[33m[2020-04-10 17:02:40 WARNING] [experiment:250][39m Received an exit signal, leaving without applying rollbacks.
+[32m[2020-04-10 17:02:40 INFO] [experiment:273][39m Experiment ended with status: interrupted
+[36m[2020-04-10 17:02:40 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-10 17:02:40 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-10 17:02:40 DEBUG] [caching:42][39m Clearing activities cache

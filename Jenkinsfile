@@ -15,10 +15,9 @@ pipeline {
         }
         stage('Run-app') {
             steps {
-                //sh 'mvn test'
-		sh 'docker-compose down'
+		//sh 'docker-compose down'
       		echo "Running tests in a fully containerized environment..."
-                sh 'docker-compose up -d'
+                //sh 'docker-compose up -d'
 		sh './wait-for-it.sh http://localhost:9002/commandes -- echo service commande is up'
             }
         }
@@ -26,8 +25,8 @@ pipeline {
             steps {
                 withPythonEnv('/usr/bin/python3.6') {
                 // Creates the virtualenv before proceeding
-                    sh 'pip install chaostoolkit'
-                    sh 'pip install -U chaostoolkit-spring'
+                    //sh 'pip install chaostoolkit'
+                    //sh 'pip install -U chaostoolkit-spring'
                     sh 'chaos --version'
                     sh './watchers-scripts/activate-all-watcher.sh'
                     sh './chaos-expérimentations/experiments.sh'
