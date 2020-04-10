@@ -16,7 +16,7 @@ pipeline {
         stage('Run-app') {
             steps {
                 //sh 'mvn test'
-                sh 'docker-compose up'
+                sh 'docker-compose up -d'
             }
         }
         stage('Test-chaos') { 
