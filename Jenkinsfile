@@ -24,7 +24,6 @@ pipeline {
             steps {
                 withPythonEnv('/usr/bin/python3.6') {
                 // Creates the virtualenv before proceeding
-		    sh 'pip uninstall -y chaostoolkit'
                     sh './install-tools.sh'
 		    
                     sh './watchers-scripts/activate-all-watcher.sh'
