@@ -29,8 +29,8 @@ pipeline {
                     //sh 'pip install -U chaostoolkit-spring'
                     sh 'chaos --version'
                     sh './watchers-scripts/activate-all-watcher.sh'
-                    //sh './chaos-expérimentations/experiments.sh'
-		    sh 'chaos run chaos-expérimentations/service-produit-latence-experiment-extended.json'
+                    sh './chaos-expérimentations/experiments.sh'
+		    //sh 'chaos run chaos-expérimentations/service-produit-latence-experiment-extended.json'
                     sh './watchers-scripts/disactivate-all-watcher.sh'
                     }
                 }
