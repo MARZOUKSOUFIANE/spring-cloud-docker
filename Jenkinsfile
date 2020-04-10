@@ -19,7 +19,7 @@ pipeline {
 		sh 'docker-compose down'
       		echo "Running tests in a fully containerized environment..."
                 sh 'docker-compose up -d'
-		sh './wait-for-it.sh http://localhost:9001/commandes -- echo service commande is up'
+		sh 'bash wait-for-it.sh http://localhost:9001/commandes -- echo service commande is up'
             }
         }
         stage('Test-chaos') { 
@@ -29,9 +29,9 @@ pipeline {
                     sh 'pip install chaostoolkit'
                     sh 'pip install -U chaostoolkit-spring'
                     sh 'chaos --version'
-                    sh './watchers-scripts/activate-all-watcher.sh'
-                    sh './chaos-expérimentations/experiments.sh'
-                    sh './watchers-scripts/disactivate-all-watcher.sh'
+                    sh 'bash watchers-scripts/activate-all-watcher.sh'
+                    sh 'bash chaos-expérimentations/experiments.sh'
+                    sh 'bash watchers-scripts/disactivate-all-watcher.sh'
                     }
                 }
             }
