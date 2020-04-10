@@ -16,7 +16,10 @@ pipeline {
         stage('Run-app') {
             steps {
                 //sh 'mvn test'
+		sh 'docker-compose down'
+      		echo "Running tests in a fully containerized environment..."
                 sh 'docker-compose up -d'
+		sh './wait-for-it.sh http://localhost:9001/commandes -- echo "service commande is up'
             }
         }
         stage('Test-chaos') { 

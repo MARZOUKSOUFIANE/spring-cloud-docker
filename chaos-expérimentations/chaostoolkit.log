@@ -4468,3 +4468,455 @@
 [36m[2020-04-09 00:59:55 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
 [36m[2020-04-09 00:59:55 DEBUG] [__init__:72][39m Cleaning up controls
 [36m[2020-04-09 00:59:55 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:21 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-10 14:26:21 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-10 14:26:21 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-10 14:26:23 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-10 14:26:23 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-10 14:26:23 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:23 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:23 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:23 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-10 14:26:23 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-10 14:26:23 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:23 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:23 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-10 14:26:23 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-10 14:26:23 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:23 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:23 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-10 14:26:23 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency starts responding slowly
+[36m[2020-04-10 14:26:23 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:23 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:23 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-10 14:26:23 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-10 14:26:23 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-10 14:26:23 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:23 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:23 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:23 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-10 14:26:24 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:24 GMT'}, 'body': '{"titre":null,"description":null,"image":null,"prix":null}'}'
+[36m[2020-04-10 14:26:24 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:24 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:24 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:24 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:24 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-10 14:26:24 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:24 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-10 14:26:24 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:25 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:25 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:25 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:25 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:25 INFO] [activity:161][39m Probe: get_configured_assaults
+[36m[2020-04-10 14:26:25 DEBUG] [python:36][39m Activity 'get_configured_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/probes.py'
+[36m[2020-04-10 14:26:25 DEBUG] [activity:179][39m   => succeeded with '{'level': 1, 'latencyRangeStart': 30000, 'latencyRangeEnd': 60000, 'latencyActive': True, 'exceptionsActive': False, 'exception': {'type': None, 'arguments': None}, 'killApplicationActive': False, 'memoryActive': False, 'memoryMillisecondsHoldFilledMemory': 90000, 'memoryMillisecondsWaitNextIncrease': 1000, 'memoryFillIncrementFraction': 0.15, 'memoryFillTargetFraction': 0.25, 'runtimeAssaultCronExpression': 'OFF', 'watchedCustomServices': None, 'frozen': False, 'proxyTargetClass': True, 'targetSource': {'target': {'level': 1, 'latencyRangeStart': 30000, 'latencyRangeEnd': 60000, 'latencyActive': True, 'exceptionsActive': False, 'exception': {'type': None, 'arguments': None}, 'killApplicationActive': False, 'memoryActive': False, 'memoryMillisecondsHoldFilledMemory': 90000, 'memoryMillisecondsWaitNextIncrease': 1000, 'memoryFillIncrementFraction': 0.15, 'memoryFillTargetFraction': 0.25, 'runtimeAssaultCronExpression': 'OFF', 'watchedCustomServices': None}, 'static': True, 'targetClass': 'de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties'}, 'targetClass': 'de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties', 'proxiedInterfaces': [], 'advisors': [{'order': 2147483647, 'advice': {}, 'pointcut': {'classFilter': {}, 'methodMatcher': {'runtime': False}}, 'perInstance': True}], 'exposeProxy': False, 'preFiltered': False}'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-10 14:26:25 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:25 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-10 14:26:25 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:24 GMT'}, 'body': '{"titre":null,"description":null,"image":null,"prix":null}'}'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:25 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:25 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-10 14:26:25 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:25 INFO] [rollback:28][39m Rollback: configure_assaults
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:25 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:25 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:25 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:25 INFO] [rollback:28][39m Rollback: disable_chaosmonkey
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:25 INFO] [activity:161][39m Action: disable_chaosmonkey
+[36m[2020-04-10 14:26:25 DEBUG] [python:36][39m Activity 'disable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:25 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:25 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-10 14:26:25 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-10 14:26:25 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:26 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-10 14:26:26 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-10 14:26:26 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-10 14:26:27 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:27 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:27 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-10 14:26:27 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-10 14:26:27 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:27 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:27 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-10 14:26:27 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-10 14:26:27 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:27 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:27 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-10 14:26:27 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency daeth
+[36m[2020-04-10 14:26:27 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:27 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:27 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-10 14:26:27 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:27 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-10 14:26:27 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:27 GMT'}, 'body': '{"titre":null,"description":null,"image":null,"prix":null}'}'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:27 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:27 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:27 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-10 14:26:27 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:27 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:27 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:27 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:27 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:27 INFO] [activity:161][39m Probe: get_configured_assaults
+[36m[2020-04-10 14:26:27 DEBUG] [python:36][39m Activity 'get_configured_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/probes.py'
+[36m[2020-04-10 14:26:27 DEBUG] [activity:179][39m   => succeeded with '{'level': 1, 'latencyRangeStart': 30000, 'latencyRangeEnd': 60000, 'latencyActive': False, 'exceptionsActive': True, 'exception': {'type': None, 'arguments': None}, 'killApplicationActive': False, 'memoryActive': False, 'memoryMillisecondsHoldFilledMemory': 90000, 'memoryMillisecondsWaitNextIncrease': 1000, 'memoryFillIncrementFraction': 0.15, 'memoryFillTargetFraction': 0.25, 'runtimeAssaultCronExpression': 'OFF', 'watchedCustomServices': None, 'frozen': False, 'proxyTargetClass': True, 'targetSource': {'target': {'level': 1, 'latencyRangeStart': 30000, 'latencyRangeEnd': 60000, 'latencyActive': False, 'exceptionsActive': True, 'exception': {'type': None, 'arguments': None}, 'killApplicationActive': False, 'memoryActive': False, 'memoryMillisecondsHoldFilledMemory': 90000, 'memoryMillisecondsWaitNextIncrease': 1000, 'memoryFillIncrementFraction': 0.15, 'memoryFillTargetFraction': 0.25, 'runtimeAssaultCronExpression': 'OFF', 'watchedCustomServices': None}, 'static': True, 'targetClass': 'de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties'}, 'targetClass': 'de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties', 'proxiedInterfaces': [], 'advisors': [{'order': 2147483647, 'advice': {}, 'pointcut': {'classFilter': {}, 'methodMatcher': {'runtime': False}}, 'perInstance': True}], 'exposeProxy': False, 'preFiltered': False}'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-10 14:26:27 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:27 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-10 14:26:27 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:27 GMT'}, 'body': '{"titre":null,"description":null,"image":null,"prix":null}'}'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:27 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:27 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-10 14:26:27 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:27 INFO] [rollback:28][39m Rollback: configure_assaults
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:27 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:27 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:27 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:27 INFO] [rollback:28][39m Rollback: disable_chaosmonkey
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:27 INFO] [activity:161][39m Action: disable_chaosmonkey
+[36m[2020-04-10 14:26:27 DEBUG] [python:36][39m Activity 'disable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:27 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:27 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-10 14:26:27 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-10 14:26:27 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:28 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-10 14:26:28 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-10 14:26:28 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-10 14:26:29 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:29 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:29 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-10 14:26:29 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-10 14:26:29 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:29 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:29 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-10 14:26:29 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-10 14:26:29 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:29 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:29 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-10 14:26:29 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency daeth
+[36m[2020-04-10 14:26:29 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:29 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:29 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-10 14:26:29 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:29 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-10 14:26:29 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:29 GMT'}, 'body': '{"titre":null,"description":null,"image":null,"prix":null}'}'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:29 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:29 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:29 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-10 14:26:29 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:29 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:29 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:29 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:29 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:29 INFO] [activity:161][39m Probe: get_configured_assaults
+[36m[2020-04-10 14:26:29 DEBUG] [python:36][39m Activity 'get_configured_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/probes.py'
+[36m[2020-04-10 14:26:29 DEBUG] [activity:179][39m   => succeeded with '{'level': 1, 'latencyRangeStart': 30000, 'latencyRangeEnd': 60000, 'latencyActive': False, 'exceptionsActive': True, 'exception': {'type': 'java.lang.IllegalArgumentException', 'arguments': [{'className': 'java.lang.String', 'value': 'custom illegal argument exception'}]}, 'killApplicationActive': False, 'memoryActive': False, 'memoryMillisecondsHoldFilledMemory': 90000, 'memoryMillisecondsWaitNextIncrease': 1000, 'memoryFillIncrementFraction': 0.15, 'memoryFillTargetFraction': 0.25, 'runtimeAssaultCronExpression': 'OFF', 'watchedCustomServices': None, 'frozen': False, 'proxyTargetClass': True, 'targetSource': {'target': {'level': 1, 'latencyRangeStart': 30000, 'latencyRangeEnd': 60000, 'latencyActive': False, 'exceptionsActive': True, 'exception': {'type': 'java.lang.IllegalArgumentException', 'arguments': [{'className': 'java.lang.String', 'value': 'custom illegal argument exception'}]}, 'killApplicationActive': False, 'memoryActive': False, 'memoryMillisecondsHoldFilledMemory': 90000, 'memoryMillisecondsWaitNextIncrease': 1000, 'memoryFillIncrementFraction': 0.15, 'memoryFillTargetFraction': 0.25, 'runtimeAssaultCronExpression': 'OFF', 'watchedCustomServices': None}, 'static': True, 'targetClass': 'de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties'}, 'targetClass': 'de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties', 'proxiedInterfaces': [], 'advisors': [{'order': 2147483647, 'advice': {}, 'pointcut': {'classFilter': {}, 'methodMatcher': {'runtime': False}}, 'perInstance': True}], 'exposeProxy': False, 'preFiltered': False}'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-10 14:26:29 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:29 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-10 14:26:29 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:29 GMT'}, 'body': '{"titre":null,"description":null,"image":null,"prix":null}'}'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:29 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:29 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-10 14:26:29 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:29 INFO] [rollback:28][39m Rollback: configure_assaults
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:29 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:29 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:29 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:29 INFO] [rollback:28][39m Rollback: disable_chaosmonkey
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:29 INFO] [activity:161][39m Action: disable_chaosmonkey
+[36m[2020-04-10 14:26:29 DEBUG] [python:36][39m Activity 'disable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:29 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:29 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-10 14:26:29 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-10 14:26:29 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:30 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-10 14:26:30 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-10 14:26:30 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-10 14:26:32 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-10 14:26:32 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-10 14:26:32 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:33 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:33 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-10 14:26:33 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-10 14:26:33 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:33 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:33 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-10 14:26:33 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-10 14:26:33 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:33 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:33 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2020-04-10 14:26:33 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency daeth
+[36m[2020-04-10 14:26:33 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:33 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:33 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-10 14:26:33 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:33 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-10 14:26:33 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:33 GMT'}, 'body': '{"titre":null,"description":null,"image":null,"prix":null}'}'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:33 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:33 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:33 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-10 14:26:33 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:33 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:33 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:33 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:33 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:33 INFO] [activity:161][39m Probe: get_configured_assaults
+[36m[2020-04-10 14:26:33 DEBUG] [python:36][39m Activity 'get_configured_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/probes.py'
+[36m[2020-04-10 14:26:33 DEBUG] [activity:179][39m   => succeeded with '{'level': 1, 'latencyRangeStart': 30000, 'latencyRangeEnd': 60000, 'latencyActive': False, 'exceptionsActive': False, 'exception': {'type': 'java.lang.IllegalArgumentException', 'arguments': [{'className': 'java.lang.String', 'value': 'custom illegal argument exception'}]}, 'killApplicationActive': True, 'memoryActive': False, 'memoryMillisecondsHoldFilledMemory': 90000, 'memoryMillisecondsWaitNextIncrease': 1000, 'memoryFillIncrementFraction': 0.15, 'memoryFillTargetFraction': 0.25, 'runtimeAssaultCronExpression': 'OFF', 'watchedCustomServices': None, 'frozen': False, 'proxyTargetClass': True, 'targetSource': {'target': {'level': 1, 'latencyRangeStart': 30000, 'latencyRangeEnd': 60000, 'latencyActive': False, 'exceptionsActive': False, 'exception': {'type': 'java.lang.IllegalArgumentException', 'arguments': [{'className': 'java.lang.String', 'value': 'custom illegal argument exception'}]}, 'killApplicationActive': True, 'memoryActive': False, 'memoryMillisecondsHoldFilledMemory': 90000, 'memoryMillisecondsWaitNextIncrease': 1000, 'memoryFillIncrementFraction': 0.15, 'memoryFillTargetFraction': 0.25, 'runtimeAssaultCronExpression': 'OFF', 'watchedCustomServices': None}, 'static': True, 'targetClass': 'de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties'}, 'targetClass': 'de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties', 'proxiedInterfaces': [], 'advisors': [{'order': 2147483647, 'advice': {}, 'pointcut': {'classFilter': {}, 'methodMatcher': {'runtime': False}}, 'perInstance': True}], 'exposeProxy': False, 'preFiltered': False}'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-10 14:26:33 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:33 INFO] [activity:161][39m Probe: commande-service-must-still-respond
+[36m[2020-04-10 14:26:33 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:33 GMT'}, 'body': '{"titre":null,"description":null,"image":null,"prix":null}'}'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:33 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:33 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-10 14:26:33 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:33 INFO] [rollback:28][39m Rollback: configure_assaults
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:33 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:33 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:33 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:33 INFO] [rollback:28][39m Rollback: disable_chaosmonkey
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:33 INFO] [activity:161][39m Action: disable_chaosmonkey
+[36m[2020-04-10 14:26:33 DEBUG] [python:36][39m Activity 'disable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:33 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:33 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-10 14:26:33 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-10 14:26:33 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:34 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-10 14:26:34 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-10 14:26:34 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-10 14:26:35 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-10 14:26:35 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-10 14:26:35 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:35 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:35 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:35 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-10 14:26:35 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-10 14:26:35 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:35 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:35 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-10 14:26:35 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-10 14:26:35 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:35 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:35 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-10 14:26:35 INFO] [experiment:182][39m Running experiment: Exploring assumptions if a dependency starts responding slowly
+[36m[2020-04-10 14:26:35 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:35 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:35 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-10 14:26:35 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-10 14:26:35 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-10 14:26:35 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:35 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:35 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:35 INFO] [activity:161][39m Probe: paiement-service-must-still-respond
+[36m[2020-04-10 14:26:38 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:38 GMT'}, 'body': '{"productId":null,"dateCommande":null,"quantite":null,"commandePayee":null,"total":null}'}'
+[36m[2020-04-10 14:26:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:38 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:38 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:38 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:38 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-10 14:26:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:38 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-10 14:26:38 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:38 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-10 14:26:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:38 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:38 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:38 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:38 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-10 14:26:38 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:38 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:38 INFO] [activity:161][39m Probe: paiement-service-must-still-respond
+[36m[2020-04-10 14:26:40 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:40 GMT'}, 'body': '{"productId":null,"dateCommande":null,"quantite":null,"commandePayee":null,"total":null}'}'
+[36m[2020-04-10 14:26:40 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:40 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:40 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:40 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-10 14:26:40 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-10 14:26:40 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:40 INFO] [rollback:28][39m Rollback: configure_assaults
+[36m[2020-04-10 14:26:40 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:40 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:40 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:40 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:40 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:40 INFO] [rollback:28][39m Rollback: disable_chaosmonkey
+[36m[2020-04-10 14:26:40 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:40 INFO] [activity:161][39m Action: disable_chaosmonkey
+[36m[2020-04-10 14:26:40 DEBUG] [python:36][39m Activity 'disable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:40 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2020-04-10 14:26:40 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:40 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:40 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-10 14:26:40 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-10 14:26:40 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-10 14:26:40 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:42 DEBUG] [cli:70][39m ###############################################################################
+[36m[2020-04-10 14:26:42 DEBUG] [cli:71][39m Running command 'run'
+[36m[2020-04-10 14:26:42 DEBUG] [cli:75][39m Using settings file '/home/octo/.chaostoolkit/settings.yaml'
+[36m[2020-04-10 14:26:43 DEBUG] [__init__:167][39m Loading global control 'chaosiq-cloud'
+[36m[2020-04-10 14:26:43 DEBUG] [python:44][39m Control module 'chaoscloud.controls' could not be loaded. Have you installed it?
+[36m[2020-04-10 14:26:43 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:43 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2020-04-10 14:26:43 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:43 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-10 14:26:43 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2020-04-10 14:26:43 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:43 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:43 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-04-10 14:26:43 INFO] [experiment:103][39m Experiment looks valid
+[36m[2020-04-10 14:26:43 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-04-10 14:26:43 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-04-10 14:26:43 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2020-04-10 14:26:43 INFO] [experiment:182][39m Running experiment: Setting and triggering service dependency death
+[36m[2020-04-10 14:26:43 DEBUG] [configuration:47][39m Loading configuration...
+[36m[2020-04-10 14:26:43 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-04-10 14:26:43 DEBUG] [secret:89][39m Secrets loaded
+[36m[2020-04-10 14:26:43 DEBUG] [__init__:39][39m Initializing controls
+[36m[2020-04-10 14:26:43 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2020-04-10 14:26:43 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:43 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:43 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:43 INFO] [activity:161][39m Probe: paiement-service-must-still-respond
+[36m[2020-04-10 14:26:45 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:45 GMT'}, 'body': '{"productId":null,"dateCommande":null,"quantite":null,"commandePayee":null,"total":null}'}'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:45 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:45 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:45 INFO] [activity:161][39m Action: enable_chaosmonkey
+[36m[2020-04-10 14:26:45 DEBUG] [python:36][39m Activity 'enable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:45 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:45 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:45 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:45 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2020-04-10 14:26:45 INFO] [hypothesis:184][39m Steady state hypothesis: System is healthy
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:45 INFO] [activity:161][39m Probe: paiement-service-must-still-respond
+[36m[2020-04-10 14:26:45 DEBUG] [activity:179][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Fri, 10 Apr 2020 13:26:45 GMT'}, 'body': '{"productId":0,"dateCommande":"2015-12-17T00:00:00.000+0000","quantite":22,"commandePayee":false,"total":2500.0}'}'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:45 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2020-04-10 14:26:45 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2020-04-10 14:26:45 INFO] [experiment:323][39m Let's rollback...
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:45 INFO] [rollback:28][39m Rollback: configure_assaults
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:45 INFO] [activity:161][39m Action: configure_assaults
+[36m[2020-04-10 14:26:45 DEBUG] [python:36][39m Activity 'configure_assaults' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:45 DEBUG] [activity:179][39m   => succeeded with 'Assault config has changed'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:45 INFO] [rollback:28][39m Rollback: disable_chaosmonkey
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2020-04-10 14:26:45 INFO] [activity:161][39m Action: disable_chaosmonkey
+[36m[2020-04-10 14:26:45 DEBUG] [python:36][39m Activity 'disable_chaosmonkey' loaded from '/home/octo/.venvs/chaostk/lib/python3.6/site-packages/chaosspring/actions.py'
+[36m[2020-04-10 14:26:45 DEBUG] [activity:179][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2020-04-10 14:26:45 INFO] [experiment:273][39m Experiment ended with status: completed
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2020-04-10 14:26:45 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-04-10 14:26:45 DEBUG] [caching:42][39m Clearing activities cache
