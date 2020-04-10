@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "waiting for docker containers"
+
+sleep 150
+
 curl -X POST -H "Content-Type: application/json" \
  -d '{
 	"controller": "true",
