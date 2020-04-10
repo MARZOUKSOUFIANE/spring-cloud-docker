@@ -17,7 +17,7 @@ pipeline {
             steps {
 		//sh 'docker-compose down'
       		echo "Running tests in a fully containerized environment..."
-                //sh 'docker-compose up -d'
+                sh 'docker-compose up -d'
 		sh './wait-for-it.sh http://localhost:9002/commandes -- echo service commande is up'
             }
         }
@@ -28,6 +28,7 @@ pipeline {
                     //sh 'pip install chaostoolkit'
                     //sh 'pip install -U chaostoolkit-spring'
                     sh 'chaos --version'
+		    
                     sh './watchers-scripts/activate-all-watcher.sh'
                     sh './chaos-expérimentations/experiments.sh'
 		    //sh 'chaos run chaos-expérimentations/service-produit-latence-experiment-extended.json'
