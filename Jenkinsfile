@@ -14,7 +14,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package -DskipTests '       
+                gitlabBuilds(builds: ['Build']) {
+                    gitlabCommitStatus('Build'){
+                        scripts {
+                            sh 'mvn clean package -DskipTests '       
+                        }
+                    }
+                }
             }
 
             post {     
@@ -29,9 +35,15 @@ pipeline {
 
         stage('Run-app') {
             steps {
-		        sh 'docker-compose down'
-      		    echo "Running tests in a fully containerized environment..."
-                sh 'docker-compose up -d'
+                gitlabBuilds(builds: ['Run-app']) {
+                    gitlabCommitStatus('Run-app'){
+                        scripts {
+                            sh 'docker-compose down'
+                            echo "Running tests in a fully containerized environment..."
+                            sh 'docker-compose up -d'
+                        }
+                    }
+                }
             }
 
             post {     
@@ -46,29 +58,40 @@ pipeline {
 
         stage('Test') { 
             steps {
-                withPythonEnv('/usr/bin/python3.6') {
-                // Creates the virtualenv before proceeding
-                    sh './install-tools.sh'
-		    
-                    sh './watchers-scripts/activate-all-watcher.sh'
-                    sh './chaos-expérimentations/experiments.sh'
-                    sh './watchers-scripts/disactivate-all-watcher.sh'
+                gitlabBuilds(builds: ['Test']) {
+                    gitlabCommitStatus('Test'){
+                        scripts {
+                            withPythonEnv('/usr/bin/python3.6') {
+                               // Creates the virtualenv before proceeding
+                                sh './install-tools.sh'
+                                sh './watchers-scripts/activate-all-watcher.sh'
+                                sh './chaos-expérimentations/experiments.sh'
+                                sh './watchers-scripts/disactivate-all-watcher.sh'
+                            }     
+                        }
                     }
                 }
+            }
 
             post {     
       		    failure {                     
-          		    updateGitlabCommitStatus name: 'Run-app', state: 'failed' 
+          		    updateGitlabCommitStatus name: 'Test', state: 'failed' 
         	    }
                 success {                     
-          		    updateGitlabCommitStatus name: 'Run-app', state: 'success' 
+          		    updateGitlabCommitStatus name: 'Test', state: 'success' 
         	    }
             }    
         }
 
         stage('Deliver') { 
             steps {
-                sh 'echo dilevry step' 
+                gitlabBuilds(builds: ['Deliver']) {
+                    gitlabCommitStatus('Deliver'){
+                        scripts {
+                            sh 'echo dilevry step' 
+                        }
+                    }
+                }
             }
 
         post {     
