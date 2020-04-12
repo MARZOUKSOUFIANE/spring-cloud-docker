@@ -3,12 +3,16 @@ pipeline {
 
     options {
         skipStagesAfterUnstable()
-	    gitLabConnection('gitlab.com')       
+	    gitLabConnection('gitlab-connection')       
   	    gitlabBuilds(builds: ['Buid','Run-app','Test','Deliver'])  
     }
 
     environment {
        JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64'
+    }
+
+    triggers {
+        gitlab(triggerOnPush: true, triggerOnMergeRequest: true, branchFilterType: 'All')
     }
 
     stages {
