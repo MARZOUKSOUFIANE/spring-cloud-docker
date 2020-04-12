@@ -19,7 +19,7 @@ pipeline {
         stage('Build') {
             steps {
                 gitlabBuilds(builds: ['Build']) {
-                    gitlabCommitStatus('Build'){
+                    gitlabCommitStatus('Build'){ 
                         script {
                             sh 'mvn clean package -DskipTests '       
                         }
