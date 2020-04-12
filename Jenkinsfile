@@ -11,10 +11,6 @@ pipeline {
        JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64'
     }
 
-    triggers {
-
-    }
-
     stages {
         stage('Build') {
             steps {
