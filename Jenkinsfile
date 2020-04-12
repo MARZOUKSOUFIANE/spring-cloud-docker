@@ -16,7 +16,7 @@ pipeline {
     }
 
     stages {
-        
+
         stage('Build') {
             steps {
                 gitlabBuilds(builds: ['Build']) {
@@ -100,7 +100,7 @@ pipeline {
                         }
                     }
                 }
-            }
+            }  
 
             post {     
                 failure {                     
