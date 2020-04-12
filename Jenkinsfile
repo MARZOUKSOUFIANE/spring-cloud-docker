@@ -81,7 +81,7 @@ pipeline {
             }
 
             post {     
-      		    failure {                     
+      		    failure {                      
           		    updateGitlabCommitStatus name: 'Test', state: 'failed' 
         	    }
                 success {                     
