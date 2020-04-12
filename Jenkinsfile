@@ -4,7 +4,7 @@ pipeline {
     options {
         skipStagesAfterUnstable()
 	    gitLabConnection('gitlab-connection')       
-  	    gitlabBuilds(builds: ['Buid','Run-app','Test','Deliver'])  
+  	    gitlabBuilds(builds: ['Build','Run-app','Test','Deliver'])  
     }
 
     environment {
