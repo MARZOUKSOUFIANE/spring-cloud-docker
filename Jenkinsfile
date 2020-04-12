@@ -16,6 +16,7 @@ pipeline {
     }
 
     stages {
+        
         stage('Build') {
             steps {
                 gitlabBuilds(builds: ['Build']) {
@@ -38,6 +39,7 @@ pipeline {
         }
 
         stage('Run-app') {
+
             steps {
                 gitlabBuilds(builds: ['Run-app']) {
                     gitlabCommitStatus('Run-app'){
@@ -61,6 +63,7 @@ pipeline {
         }
 
         stage('Test') { 
+
             steps {
                 gitlabBuilds(builds: ['Test']) {
                     gitlabCommitStatus('Test'){
@@ -88,6 +91,7 @@ pipeline {
         }
 
         stage('Deliver') { 
+
             steps {
                 gitlabBuilds(builds: ['Deliver']) {
                     gitlabCommitStatus('Deliver'){
@@ -98,13 +102,13 @@ pipeline {
                 }
             }
 
-        post {     
-      		    failure {                     
-          		    updateGitlabCommitStatus name: 'Deliver', state: 'failed' 
-        	    }
+            post {     
+                failure {                     
+                    updateGitlabCommitStatus name: 'Deliver', state: 'failed' 
+                }
                 success {                     
-          		    updateGitlabCommitStatus name: 'Deliver', state: 'success' 
-        	    }
+                    updateGitlabCommitStatus name: 'Deliver', state: 'success' 
+                }
             }  
         }
     }
