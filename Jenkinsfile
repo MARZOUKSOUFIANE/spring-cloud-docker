@@ -20,7 +20,7 @@ pipeline {
             steps {
                 gitlabBuilds(builds: ['Build']) {
                     gitlabCommitStatus('Build'){
-                        scripts {
+                        script {
                             sh 'mvn clean package -DskipTests '       
                         }
                     }
@@ -41,7 +41,7 @@ pipeline {
             steps {
                 gitlabBuilds(builds: ['Run-app']) {
                     gitlabCommitStatus('Run-app'){
-                        scripts {
+                        script {
                             sh 'docker-compose down'
                             echo "Running tests in a fully containerized environment..."
                             sh 'docker-compose up -d'
@@ -64,7 +64,7 @@ pipeline {
             steps {
                 gitlabBuilds(builds: ['Test']) {
                     gitlabCommitStatus('Test'){
-                        scripts {
+                        script {
                             withPythonEnv('/usr/bin/python3.6') {
                                // Creates the virtualenv before proceeding
                                 sh './install-tools.sh'
@@ -91,7 +91,7 @@ pipeline {
             steps {
                 gitlabBuilds(builds: ['Deliver']) {
                     gitlabCommitStatus('Deliver'){
-                        scripts {
+                        script {
                             sh 'echo dilevry step' 
                         }
                     }
