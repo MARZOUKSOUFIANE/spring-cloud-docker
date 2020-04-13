@@ -48,9 +48,9 @@ pipeline {
                             script {
                                 wrap ([$class: 'AnsiColorBuildWrapper', 'colorMapName':'XTerm']) {
                                     ansiblePlaybook(
-                                        playbook: 'Ansible/chaostk-playbook.yml',
+                                        playbook: 'chaostk-playbook.yml',
                                         colorized: true,
-                                        inventory: 'Ansible/inventory.ini'
+                                        inventory: 'inventory.ini'
                                     )
                                 }
                             }
