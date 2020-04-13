@@ -44,6 +44,7 @@ pipeline {
                 gitlabBuilds(builds: ['Test']) {
                     gitlabCommitStatus('Test'){
                         
+                        dir('Ansible'){
                             script {
                                 wrap ([$class: 'AnsiColorBuildWrapper', 'colorMapName':'XTerm']) {
                                     ansiblePlaybook(
@@ -53,6 +54,7 @@ pipeline {
                                     )
                                 }
                             }
+                        }
                     }
                 } 
             }
