@@ -4,7 +4,7 @@ pipeline {
     options {
         skipStagesAfterUnstable()
 	    gitLabConnection('gitlab-connection')       
-  	    gitlabBuilds(builds: ['Build','Run-app','Test','Deliver'])  
+  	    gitlabBuilds(builds: ['Build','Install-tools','Run-app','Test','Deliver'])  
     }
 
     environment {
@@ -34,6 +34,37 @@ pipeline {
         	    }
                 success {                     
           		    updateGitlabCommitStatus name: 'Build', state: 'success' 
+        	    }
+            }
+        }
+
+        stage('Install-tools') { 
+
+            steps {
+                gitlabBuilds(builds: ['Test']) {
+                    gitlabCommitStatus('Test'){
+                        
+                        dir('Ansible'){
+                            script {
+                                wrap ([$class: 'AnsiColorBuildWrapper', 'colorMapName':'XTerm']) {
+                                    ansiblePlaybook(
+                                        playbook: 'chaostk-playbook.yml',
+                                        colorized: true,
+                                        inventory: 'inventory.ini'
+                                    )
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+
+            post {     
+      		    failure {                     
+          		    updateGitlabCommitStatus name: 'Install-tools', state: 'failed' 
+        	    }
+                success {                     
+          		    updateGitlabCommitStatus name: 'Install-tools', state: 'success' 
         	    }
             }
         }
@@ -70,7 +101,6 @@ pipeline {
                         script {
                             withPythonEnv('/usr/bin/python3.6') {
                                // Creates the virtualenv before proceeding
-                                sh './install-tools.sh'
                                 sh './watchers-scripts/activate-all-watcher.sh'
                                 sh './chaos-expérimentations/experiments.sh'
                                 sh './watchers-scripts/disactivate-all-watcher.sh'

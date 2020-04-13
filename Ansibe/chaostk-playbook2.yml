@@ -1,0 +1,17 @@
+- hosts: all
+  gather_facts: True
+  any_errors_fatal: true
+  debugger: on_failed
+
+  tasks:
+      
+  - name: Installing Packages
+    pip:
+      name: ['chaostoolkit','chaostoolkit-spring','chaostoolkit-reporting']
+      virtualenv: ~/.venvs/chaostk
+
+  - name: ensure the latest versions of packages
+    pip:
+      name: ['chaostoolkit','chaostoolkit-spring','chaostoolkit-reporting']
+      virtualenv: ~/.venvs/chaostk
+      state: latest
