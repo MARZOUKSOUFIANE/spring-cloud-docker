@@ -1,0 +1,386 @@
+{
+  "chaoslib-version": "1.8.1",
+  "platform": "Linux-5.3.0-46-generic-x86_64-with-Ubuntu-18.04-bionic",
+  "node": "dhcppc9",
+  "experiment": {
+    "version": "1.0.0",
+    "title": "Exploring assumptions if a dependency daeth",
+    "description": "Uses the Spring Chaos Monkey to manipulate a service",
+    "tags": [
+      "service",
+      "spring"
+    ],
+    "steady-state-hypothesis": {
+      "probes": [
+        {
+          "name": "commande-service-must-still-respond",
+          "provider": {
+            "type": "http",
+            "url": "http://localhost:9002/commandes/3/product"
+          },
+          "tolerance": 200,
+          "type": "probe",
+          "timeout": 1
+        }
+      ],
+      "title": "System is healthy"
+    },
+    "method": [
+      {
+        "name": "enable_chaosmonkey",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator"
+          },
+          "func": "enable_chaosmonkey",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      {
+        "name": "configure_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator",
+            "assaults_configuration": {
+              "level": 1,
+              "latencyRangeStart": 30000,
+              "latencyRangeEnd": 60000,
+              "latencyActive": false,
+              "exceptionsActive": true,
+              "killApplicationActive": false,
+              "restartApplicationActive": false,
+              "exception": {
+                "type": "java.lang.IllegalArgumentException",
+                "arguments": [
+                  {
+                    "className": "java.lang.String",
+                    "value": "custom illegal argument exception"
+                  }
+                ]
+              }
+            }
+          },
+          "func": "change_assaults_configuration",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      {
+        "name": "get_configured_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator"
+          },
+          "func": "assaults_configuration",
+          "module": "chaosspring.probes",
+          "type": "python"
+        },
+        "type": "probe"
+      }
+    ],
+    "rollbacks": [
+      {
+        "name": "configure_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator",
+            "assaults_configuration": {
+              "level": 1,
+              "latencyRangeStart": 10000,
+              "latencyRangeEnd": 10000,
+              "latencyActive": false,
+              "exceptionsActive": false,
+              "killApplicationActive": false,
+              "restartApplicationActive": false
+            }
+          },
+          "func": "change_assaults_configuration",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      {
+        "name": "disable_chaosmonkey",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator"
+          },
+          "func": "disable_chaosmonkey",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      }
+    ],
+    "dry": false
+  },
+  "start": "2020-04-14T18:44:44.359665",
+  "status": "completed",
+  "deviated": false,
+  "steady_states": {
+    "before": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "name": "commande-service-must-still-respond",
+            "provider": {
+              "type": "http",
+              "url": "http://localhost:9002/commandes/3/product"
+            },
+            "tolerance": 200,
+            "type": "probe",
+            "timeout": 1
+          },
+          "output": {
+            "status": 200,
+            "headers": {
+              "Content-Type": "application/json;charset=UTF-8",
+              "Transfer-Encoding": "chunked",
+              "Date": "Tue, 14 Apr 2020 18:44:44 GMT"
+            },
+            "body": "{\"titre\":null,\"description\":null,\"image\":null,\"prix\":null}"
+          },
+          "status": "succeeded",
+          "start": "2020-04-14T18:44:44.360566",
+          "end": "2020-04-14T18:44:44.377053",
+          "duration": 0.016487,
+          "tolerance_met": true
+        }
+      ]
+    },
+    "after": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "name": "commande-service-must-still-respond",
+            "provider": {
+              "type": "http",
+              "url": "http://localhost:9002/commandes/3/product"
+            },
+            "tolerance": 200,
+            "type": "probe",
+            "timeout": 1
+          },
+          "output": {
+            "status": 200,
+            "headers": {
+              "Content-Type": "application/json;charset=UTF-8",
+              "Transfer-Encoding": "chunked",
+              "Date": "Tue, 14 Apr 2020 18:44:44 GMT"
+            },
+            "body": "{\"titre\":null,\"description\":null,\"image\":null,\"prix\":null}"
+          },
+          "status": "succeeded",
+          "start": "2020-04-14T18:44:44.391662",
+          "end": "2020-04-14T18:44:44.411633",
+          "duration": 0.019971,
+          "tolerance_met": true
+        }
+      ]
+    }
+  },
+  "run": [
+    {
+      "activity": {
+        "name": "enable_chaosmonkey",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator"
+          },
+          "func": "enable_chaosmonkey",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      "output": "Chaos Monkey is enabled",
+      "status": "succeeded",
+      "start": "2020-04-14T18:44:44.377554",
+      "end": "2020-04-14T18:44:44.381411",
+      "duration": 0.003857
+    },
+    {
+      "activity": {
+        "name": "configure_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator",
+            "assaults_configuration": {
+              "level": 1,
+              "latencyRangeStart": 30000,
+              "latencyRangeEnd": 60000,
+              "latencyActive": false,
+              "exceptionsActive": true,
+              "killApplicationActive": false,
+              "restartApplicationActive": false,
+              "exception": {
+                "type": "java.lang.IllegalArgumentException",
+                "arguments": [
+                  {
+                    "className": "java.lang.String",
+                    "value": "custom illegal argument exception"
+                  }
+                ]
+              }
+            }
+          },
+          "func": "change_assaults_configuration",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      "output": "Assault config has changed",
+      "status": "succeeded",
+      "start": "2020-04-14T18:44:44.381661",
+      "end": "2020-04-14T18:44:44.386355",
+      "duration": 0.004694
+    },
+    {
+      "activity": {
+        "name": "get_configured_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator"
+          },
+          "func": "assaults_configuration",
+          "module": "chaosspring.probes",
+          "type": "python"
+        },
+        "type": "probe"
+      },
+      "output": {
+        "level": 1,
+        "latencyRangeStart": 30000,
+        "latencyRangeEnd": 60000,
+        "latencyActive": false,
+        "exceptionsActive": true,
+        "exception": {
+          "type": "java.lang.IllegalArgumentException",
+          "arguments": [
+            {
+              "className": "java.lang.String",
+              "value": "custom illegal argument exception"
+            }
+          ]
+        },
+        "killApplicationActive": false,
+        "memoryActive": false,
+        "memoryMillisecondsHoldFilledMemory": 90000,
+        "memoryMillisecondsWaitNextIncrease": 1000,
+        "memoryFillIncrementFraction": 0.15,
+        "memoryFillTargetFraction": 0.25,
+        "runtimeAssaultCronExpression": "OFF",
+        "watchedCustomServices": null,
+        "proxyTargetClass": true,
+        "targetSource": {
+          "target": {
+            "level": 1,
+            "latencyRangeStart": 30000,
+            "latencyRangeEnd": 60000,
+            "latencyActive": false,
+            "exceptionsActive": true,
+            "exception": {
+              "type": "java.lang.IllegalArgumentException",
+              "arguments": [
+                {
+                  "className": "java.lang.String",
+                  "value": "custom illegal argument exception"
+                }
+              ]
+            },
+            "killApplicationActive": false,
+            "memoryActive": false,
+            "memoryMillisecondsHoldFilledMemory": 90000,
+            "memoryMillisecondsWaitNextIncrease": 1000,
+            "memoryFillIncrementFraction": 0.15,
+            "memoryFillTargetFraction": 0.25,
+            "runtimeAssaultCronExpression": "OFF",
+            "watchedCustomServices": null
+          },
+          "targetClass": "de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties",
+          "static": true
+        },
+        "targetClass": "de.codecentric.spring.boot.chaos.monkey.configuration.AssaultProperties",
+        "proxiedInterfaces": [],
+        "advisors": [
+          {
+            "order": 2147483647,
+            "advice": {},
+            "pointcut": {
+              "classFilter": {},
+              "methodMatcher": {
+                "runtime": false
+              }
+            },
+            "perInstance": true
+          }
+        ],
+        "exposeProxy": false,
+        "preFiltered": false,
+        "frozen": false
+      },
+      "status": "succeeded",
+      "start": "2020-04-14T18:44:44.386667",
+      "end": "2020-04-14T18:44:44.391212",
+      "duration": 0.004545
+    }
+  ],
+  "rollbacks": [
+    {
+      "activity": {
+        "name": "configure_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator",
+            "assaults_configuration": {
+              "level": 1,
+              "latencyRangeStart": 10000,
+              "latencyRangeEnd": 10000,
+              "latencyActive": false,
+              "exceptionsActive": false,
+              "killApplicationActive": false,
+              "restartApplicationActive": false
+            }
+          },
+          "func": "change_assaults_configuration",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      "output": "Assault config has changed",
+      "status": "succeeded",
+      "start": "2020-04-14T18:44:44.412570",
+      "end": "2020-04-14T18:44:44.417505",
+      "duration": 0.004935
+    },
+    {
+      "activity": {
+        "name": "disable_chaosmonkey",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator"
+          },
+          "func": "disable_chaosmonkey",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      "output": "Chaos Monkey is disabled",
+      "status": "succeeded",
+      "start": "2020-04-14T18:44:44.417849",
+      "end": "2020-04-14T18:44:44.421481",
+      "duration": 0.003632
+    }
+  ],
+  "end": "2020-04-14T18:44:44.421644",
+  "duration": 0.07272076606750488
+}

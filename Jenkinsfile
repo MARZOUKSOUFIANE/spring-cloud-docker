@@ -101,9 +101,11 @@ pipeline {
                         script {
                             withPythonEnv('/usr/bin/python3.6') {
                                // Creates the virtualenv before proceeding
-                                sh './watchers-scripts/activate-all-watcher.sh'
-                                sh './chaos-expérimentations/experiments.sh'
-                                sh './watchers-scripts/disactivate-all-watcher.sh'
+                                dir('ChaosToolKit') {
+                                    sh './watchers-scripts/activate-all-watcher.sh'
+                                    sh './chaos-expérimentations/experiments.sh'
+                                    sh './watchers-scripts/disactivate-all-watcher.sh'
+                                }
                             }     
                         }
                     }

@@ -2,6 +2,7 @@ package com.mproduits.service;
 
 
 import com.mproduits.dto.ProductDto;
+import com.mproduits.exceptions.ProductNotFoundException;
 import com.mproduits.mapper.ProductMapper;
 import com.mproduits.model.Product;
 import com.mproduits.repository.ProductRepository;
@@ -31,7 +32,7 @@ public class ProductService {
         if(product.isPresent()){
             return ProductMapper.map(product.get());
         }else{
-           throw  new com.mproduits.web.exceptions.ProductNotFoundException("Le produit correspondant à l'id " + id + " n'existe pas");
+           throw  new ProductNotFoundException("Le produit correspondant à l'id " + id + " n'existe pas");
         }
     }
 }

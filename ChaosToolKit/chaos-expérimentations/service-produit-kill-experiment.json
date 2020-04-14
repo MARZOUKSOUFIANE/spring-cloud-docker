@@ -1,6 +1,6 @@
 {
     "version": "1.0.0",
-    "title": "Setting and triggering service dependency death",
+    "title": "Exploring assumptions if a dependency daeth",
     "description": "Uses the Spring Chaos Monkey to manipulate a service",
     "tags": [
         "service",
@@ -15,7 +15,8 @@
                     "url": "http://localhost:9002/commandes/3/product"
                 },
                 "tolerance": 200,
-                "type": "probe"
+                "type": "probe",
+                "timeout": 1
             }
         ],
         "title": "System is healthy"
@@ -55,10 +56,14 @@
             "type": "action"
         },
         {
-            "name": "trigger-kill",
+            "name": "get_configured_assaults",
             "provider": {
-                "type": "http",
-                "url": "http://localhost:8080/"
+                "arguments": {
+                    "base_url": "http://localhost:9001/actuator"
+                },
+                "func": "assaults_configuration",
+                "module": "chaosspring.probes",
+                "type": "python"
             },
             "type": "probe"
         }

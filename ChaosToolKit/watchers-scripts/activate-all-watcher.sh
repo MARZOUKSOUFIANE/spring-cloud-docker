@@ -6,7 +6,7 @@ sleep 150
 
 curl -X POST -H "Content-Type: application/json" \
  -d '{
-	"controller": "true",
+	"controller": "false",
 	"restController": "true",
 	"service": "true",
 	"repository": "true",
