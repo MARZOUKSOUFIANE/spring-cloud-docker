@@ -8,35 +8,29 @@
   - name: install chaostoolkit
     pip:
       name: chaostoolkit
-      virtualenv: ~/.venvs/chaostk
       virtualenv_command: /usr/bin/python3.6 -m venv
 
   - name: ensure chaostoolkit is at the latest version
     pip:
       name: chaostoolkit
-      virtualenv: ~/.venvs/chaostk
       state: latest
 
   - name: install chaosspring Extension
     pip:
       name: chaostoolkit-spring
-      virtualenv: ~/.venvs/chaostk
       virtualenv_command: /usr/bin/python3.6 -m venv
 
   - name: ensure chaosspring is at the latest version
     pip:
       name: chaostoolkit-spring
-      virtualenv: ~/.venvs/chaostk
       state: latest
 
   - name: install chaos-reporting Extension
     pip:
       name: chaostoolkit-reporting
-      virtualenv: ~/.venvs/chaostk
       virtualenv_command: /usr/bin/python3.6 -m venv
 
   - name: ensure chaos-reporting is at the latest version
     pip:
       name: chaostoolkit-reporting
-      virtualenv: ~/.venvs/chaostk
       state: latest
