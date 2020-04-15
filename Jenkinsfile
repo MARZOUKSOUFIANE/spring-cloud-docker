@@ -105,7 +105,7 @@ pipeline {
                                     sh './watchers-scripts/activate-all-watcher.sh'
                                     sh './chaos-expérimentations/experiments.sh'
                                     sh './watchers-scripts/disactivate-all-watcher.sh'
-                                    sh 'chaos report --export-format=html5 chaos-report.json report.html'
+                                    sh 'chaos report --export-format=html5 journal.json report.html'
                                 }
                             }     
                         }
