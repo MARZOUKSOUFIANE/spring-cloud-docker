@@ -99,11 +99,14 @@ pipeline {
                 gitlabBuilds(builds: ['Test']) {
                     gitlabCommitStatus('Test'){
                         script {
-                            dir('ChaosToolKit') {
-                               sh './watchers-scripts/activate-all-watcher.sh'
-                                sh './chaos-expérimentations/experiments.sh'
-                                sh './watchers-scripts/disactivate-all-watcher.sh'
-                                sh 'chaos report --export-format=html5 journal.json report.html'
+                            withPythonEnv('/usr/bin/python3.6') {
+                               // Creates the virtualenv before proceeding
+                                dir('ChaosToolKit') {
+                                    sh './watchers-scripts/activate-all-watcher.sh'
+                                    sh './chaos-expérimentations/experiments.sh'
+                                    sh './watchers-scripts/disactivate-all-watcher.sh'
+                                    sh 'chaos report --export-format=html5 journal.json report.html'
+                                }
                             }     
                         }
                     }
