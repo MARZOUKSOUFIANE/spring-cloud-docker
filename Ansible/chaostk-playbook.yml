@@ -31,3 +31,14 @@
     pip:
       name: chaostoolkit-reporting
       state: latest
+
+  - name: Install chaos-reporting dependencies 
+    apt:
+      pkg:
+      - texlive-latex-base
+      - texlive-fonts-recommended
+      - texlive-fonts-extra
+      - texlive-fonts-extra
+      - texlive-fonts-extra
+      - texlive-latex-extra
+      - pdflatex
