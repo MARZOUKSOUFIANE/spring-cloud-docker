@@ -99,9 +99,9 @@ pipeline {
                 gitlabBuilds(builds: ['Test']) {
                     gitlabCommitStatus('Test'){
                         script {
-                            withPythonEnv('/usr/bin/python3.6') {
+                            dir('ChaosToolKit') {
+                                withPythonEnv('/usr/bin/python3.6') {
                                // Creates the virtualenv before proceeding
-                                dir('ChaosToolKit') {
                                     sh './watchers-scripts/activate-all-watcher.sh'
                                     sh './chaos-expérimentations/experiments.sh'
                                     sh './watchers-scripts/disactivate-all-watcher.sh'
