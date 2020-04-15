@@ -43,18 +43,19 @@ pipeline {
             steps {
                 gitlabBuilds(builds: ['Test']) {
                     gitlabCommitStatus('Test'){
-                        
-                        dir('Ansible'){
-                            script {
-                                wrap ([$class: 'AnsiColorBuildWrapper', 'colorMapName':'XTerm']) {
-                                    ansiblePlaybook(
-                                        playbook: 'chaostk-playbook.yml',
-                                        colorized: true,
-                                        inventory: 'inventory.ini'
-                                    )
+                        withPythonEnv('/usr/bin/python3.6') {
+                            dir('Ansible'){
+                                script {
+                                    wrap ([$class: 'AnsiColorBuildWrapper', 'colorMapName':'XTerm']) {
+                                        ansiblePlaybook(
+                                            playbook: 'chaostk-playbook.yml',
+                                            colorized: true,
+                                            inventory: 'inventory.ini'
+                                        )
+                                    }
                                 }
                             }
-                        }
+                        } 
                     }
                 } 
             }
