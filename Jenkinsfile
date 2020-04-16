@@ -4,7 +4,7 @@ pipeline {
     options {
         skipStagesAfterUnstable()
 	    gitLabConnection('gitlab-connection')       
-  	    gitlabBuilds(builds: ['Build','Install-tools','Run-app','Test','Deliver'])  
+  	    gitlabBuilds(builds: ['Build','Install-tools','Run-app','Test-api','Test-container','Deliver'])  
     }
 
     environment {
@@ -94,11 +94,11 @@ pipeline {
             }
         }
 
-        stage('Test') { 
+        stage('Test-api') { 
 
             steps {
-                gitlabBuilds(builds: ['Test']) {
-                    gitlabCommitStatus('Test'){
+                gitlabBuilds(builds: ['Test-api']) {
+                    gitlabCommitStatus('Test-api'){
                         script {
                             withPythonEnv('/usr/bin/python3.6') {
                                // Creates the virtualenv before proceeding
@@ -116,10 +116,33 @@ pipeline {
 
             post {     
       		    failure {                      
-          		    updateGitlabCommitStatus name: 'Test', state: 'failed' 
+          		    updateGitlabCommitStatus name: 'Test-api', state: 'failed' 
         	    }
                 success {                     
-          		    updateGitlabCommitStatus name: 'Test', state: 'success' 
+          		    updateGitlabCommitStatus name: 'Test-api', state: 'success' 
+        	    }
+            }    
+        }
+
+
+        stage('Test-container') { 
+
+            steps {
+                gitlabBuilds(builds: ['Test-container']) {
+                    gitlabCommitStatus('Test-container'){
+                        script {
+                            pumba kill produits     
+                        }
+                    }
+                }  
+            }
+
+            post {     
+      		    failure {                      
+          		    updateGitlabCommitStatus name: 'Test-container', state: 'failed' 
+        	    }
+                success {                     
+          		    updateGitlabCommitStatus name: 'Test-container', state: 'success' 
         	    }
             }    
         }
