@@ -1,6 +1,7 @@
 version: '3'
 services:
   config:
+    container_name: config
     build:
       context: ./Edges/config-service/
     ports:
@@ -11,6 +12,7 @@ services:
     - web
 
   eureka:
+    container_name: eureka
     build:
       context: ./Edges/eureka-service/
     ports:
@@ -23,6 +25,7 @@ services:
     - web
 
   spring-admin:
+    container_name: spring-admin
     build:
       context: ./Edges/spring-admin/
     ports:
@@ -36,6 +39,7 @@ services:
     - web
 
   commandes:
+    container_name: commandes
     build:
       context: ./Commandes
     depends_on:
@@ -49,6 +53,7 @@ services:
     - web
 
   paiement:
+    container_name: paiement
     build:
       context: ./Paiement
     depends_on:
@@ -62,6 +67,7 @@ services:
     - web
 
   zuul-proxy:
+    container_name: zuul-proxy
     build:
       context: ./Edges/zuul-proxy
     depends_on:
@@ -75,6 +81,7 @@ services:
     - web
 
   springcloud-gateway:
+    container_name: springcloud-gateway
     build:
       context: ./Edges/springCloud-gateway
     depends_on:
@@ -88,6 +95,7 @@ services:
     - web
 
   zuul-client:
+    container_name: zuul-client
     build:
       context: ./Clients/zuul-client
     depends_on:
@@ -101,6 +109,7 @@ services:
     - web
 
   springcloudgateway-client:
+    container_name: springcloudgateway-client
     build:
       context: ./Clients/springCloudGateway-client
     depends_on:
@@ -114,6 +123,7 @@ services:
     - web
 
   mysql-container:
+    container_name: mysql
     image: mysql
     depends_on:
       - eureka
@@ -128,6 +138,7 @@ services:
       - web
 
   produits:
+    container_name: produits
     build:
       context: ./Produits
     depends_on:
@@ -148,6 +159,7 @@ services:
       - web
 
   zipkin:
+    container_name: zipkin
     build:
       context: ./Edges/zipkin/
     image: zipkin
