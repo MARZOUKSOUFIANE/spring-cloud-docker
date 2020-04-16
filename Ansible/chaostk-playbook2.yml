@@ -17,8 +17,8 @@
       state: latest
 
  - name: Install pumba for docker 
-    shell: sudo curl -L https://github.com/alexei-led/pumba/releases/download/0.5.2/pumba_linux_amd64 -o /usr/bin/pumba
+    shell: sudo curl -L https://github.com/alexei-led/pumba/releases/download/0.5.2/pumba_linux_amd64 -o ../pumba
 
 
   - name: Add executio permissio to pumba binary 
-    shell: sudo chmod +x /usr/bin/pumba
+    shell: sudo chmod +x ../pumba
