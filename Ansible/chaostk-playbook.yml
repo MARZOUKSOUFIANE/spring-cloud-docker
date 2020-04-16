@@ -1,0 +1,53 @@
+- hosts: all
+  gather_facts: True
+  any_errors_fatal: true
+  debugger: on_failed
+
+  tasks:
+
+  - name: install chaostoolkit
+    pip:
+      name: chaostoolkit
+
+  - name: ensure chaostoolkit is at the latest version
+    pip:
+      name: chaostoolkit
+      state: latest
+
+  - name: install chaosspring Extension
+    pip:
+      name: chaostoolkit-spring
+
+  - name: ensure chaosspring is at the latest version
+    pip:
+      name: chaostoolkit-spring
+      state: latest
+
+  - name: install chaos-reporting Extension
+    pip:
+      name: chaostoolkit-reporting
+
+  - name: ensure chaos-reporting is at the latest version
+    pip:
+      name: chaostoolkit-reporting
+      state: latest
+
+  - name: Install chaos-reporting dependencies 
+    apt:
+      pkg:
+      - texlive-latex-base
+      - texlive-fonts-recommended
+      - texlive-fonts-extra
+      - texlive-fonts-extra
+      - texlive-fonts-extra
+      - texlive-latex-extra
+
+  - name: Install pumba for docker 
+    shell: curl -L https://github.com/alexei-led/pumba/releases/download/0.5.2/pumba_linux_amd64 -o ../Pumba/pumba
+
+
+  - name: Add executio permissio to pumba binary 
+    shell: chmod +x ../Pumba/pumba
+
+
+

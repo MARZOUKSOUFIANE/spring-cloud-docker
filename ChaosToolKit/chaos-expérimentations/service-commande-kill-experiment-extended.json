@@ -1,0 +1,94 @@
+{
+    "version": "1.0.0",
+    "title": "Setting and triggering service dependency death",
+    "description": "Uses the Spring Chaos Monkey to manipulate a service",
+    "tags": [
+        "service",
+        "spring"
+    ],
+    "steady-state-hypothesis": {
+        "probes": [
+            {
+                "name": "paiement-service-must-still-respond",
+                "provider": {
+                    "type": "http",
+                    "url": "http://localhost:9003/paiements/1/commande"
+                },
+                "tolerance": 200,
+                "type": "probe"
+            }
+        ],
+        "title": "System is healthy"
+    },
+    "method": [
+        {
+            "name": "enable_chaosmonkey",
+            "provider": {
+                "arguments": {
+                    "base_url": "http://localhost:9002/actuator"
+                },
+                "func": "enable_chaosmonkey",
+                "module": "chaosspring.actions",
+                "type": "python"
+            },
+            "type": "action"
+        },
+        {
+            "name": "configure_assaults",
+            "provider": {
+                "arguments": {
+                    "base_url": "http://localhost:9002/actuator",
+                    "assaults_configuration": {
+                        "level": 1,
+                        "latencyRangeStart": 30000,
+                        "latencyRangeEnd": 60000,
+                        "latencyActive": false,
+                        "exceptionsActive": false,
+                        "killApplicationActive": true,
+                        "restartApplicationActive": false
+                    }
+                },
+                "func": "change_assaults_configuration",
+                "module": "chaosspring.actions",
+                "type": "python"
+            },
+            "type": "action"
+        }
+        
+    ],
+    "rollbacks": [
+	{
+            "name": "configure_assaults", 
+            "provider": {
+                "arguments": {
+                    "base_url": "http://localhost:9001/actuator",
+                    "assaults_configuration": {
+                        "level": 1,
+                        "latencyRangeStart": 10000,
+                        "latencyRangeEnd": 10000,
+                        "latencyActive": false,
+                        "exceptionsActive": false,
+                        "killApplicationActive": false,
+                        "restartApplicationActive": false
+                    }
+                },
+                "func": "change_assaults_configuration",
+                "module": "chaosspring.actions",
+                "type": "python"
+            },
+            "type": "action"
+        },
+        {
+            "name": "disable_chaosmonkey",
+            "provider": {
+                "arguments": {
+                    "base_url": "http://localhost:9001/actuator"
+                },
+                "func": "disable_chaosmonkey",
+                "module": "chaosspring.actions",
+                "type": "python"
+            },
+            "type": "action"
+        }
+   ]
+}

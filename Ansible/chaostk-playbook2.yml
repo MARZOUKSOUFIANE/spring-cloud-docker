@@ -1,0 +1,24 @@
+- hosts: all
+  gather_facts: True
+  any_errors_fatal: true
+  debugger: on_failed
+
+  tasks:
+      
+  - name: Installing Packages
+    pip:
+      name: ['chaostoolkit','chaostoolkit-spring','chaostoolkit-reporting']
+      virtualenv: ~/.venvs/chaostk
+
+  - name: ensure the latest versions of packages
+    pip:
+      name: ['chaostoolkit','chaostoolkit-spring','chaostoolkit-reporting']
+      virtualenv: ~/.venvs/chaostk
+      state: latest
+
+ - name: Install pumba for docker 
+    shell: sudo curl -L https://github.com/alexei-led/pumba/releases/download/0.5.2/pumba_linux_amd64 -o ../Pumba/pumba
+
+
+  - name: Add executio permissio to pumba binary 
+    shell: sudo chmod +x ../Pumba/pumba

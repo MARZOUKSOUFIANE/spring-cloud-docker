@@ -1,0 +1,5 @@
+experiments:
+  cc4c6594-d819-40ab-8d66-db5f83208f25:
+    7204ae05-cf6d-46f1-9ad8-87653ad69d4d:
+      service-produit-latence-experiment-extended.json:
+        experiment_id: 44d12832-7e58-48c2-96ae-e23e4be1377c

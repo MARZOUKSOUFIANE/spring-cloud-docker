@@ -1,0 +1,264 @@
+{
+  "chaoslib-version": "1.8.1",
+  "platform": "Linux-5.3.0-46-generic-x86_64-with-Ubuntu-18.04-bionic",
+  "node": "octo",
+  "experiment": {
+    "version": "1.0.0",
+    "title": "Setting and triggering service dependency death",
+    "description": "Uses the Spring Chaos Monkey to manipulate a service",
+    "tags": [
+      "service",
+      "spring"
+    ],
+    "steady-state-hypothesis": {
+      "probes": [
+        {
+          "name": "paiement-service-must-still-respond",
+          "provider": {
+            "type": "http",
+            "url": "http://localhost:9003/paiements/1/commande"
+          },
+          "tolerance": 200,
+          "type": "probe"
+        }
+      ],
+      "title": "System is healthy"
+    },
+    "method": [
+      {
+        "name": "enable_chaosmonkey",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9002/actuator"
+          },
+          "func": "enable_chaosmonkey",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      {
+        "name": "configure_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9002/actuator",
+            "assaults_configuration": {
+              "level": 1,
+              "latencyRangeStart": 30000,
+              "latencyRangeEnd": 60000,
+              "latencyActive": false,
+              "exceptionsActive": false,
+              "killApplicationActive": true,
+              "restartApplicationActive": false
+            }
+          },
+          "func": "change_assaults_configuration",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      }
+    ],
+    "rollbacks": [
+      {
+        "name": "configure_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator",
+            "assaults_configuration": {
+              "level": 1,
+              "latencyRangeStart": 10000,
+              "latencyRangeEnd": 10000,
+              "latencyActive": false,
+              "exceptionsActive": false,
+              "killApplicationActive": false,
+              "restartApplicationActive": false
+            }
+          },
+          "func": "change_assaults_configuration",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      {
+        "name": "disable_chaosmonkey",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator"
+          },
+          "func": "disable_chaosmonkey",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      }
+    ],
+    "dry": false
+  },
+  "start": "2020-04-15T22:59:16.710450",
+  "status": "completed",
+  "deviated": false,
+  "steady_states": {
+    "before": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "name": "paiement-service-must-still-respond",
+            "provider": {
+              "type": "http",
+              "url": "http://localhost:9003/paiements/1/commande"
+            },
+            "tolerance": 200,
+            "type": "probe"
+          },
+          "output": {
+            "status": 200,
+            "headers": {
+              "Content-Type": "application/json;charset=UTF-8",
+              "Transfer-Encoding": "chunked",
+              "Date": "Wed, 15 Apr 2020 22:59:18 GMT"
+            },
+            "body": "{\"productId\":null,\"dateCommande\":null,\"quantite\":null,\"commandePayee\":null,\"total\":null}"
+          },
+          "status": "succeeded",
+          "start": "2020-04-15T22:59:16.711303",
+          "end": "2020-04-15T22:59:18.741144",
+          "duration": 2.029841,
+          "tolerance_met": true
+        }
+      ]
+    },
+    "after": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "name": "paiement-service-must-still-respond",
+            "provider": {
+              "type": "http",
+              "url": "http://localhost:9003/paiements/1/commande"
+            },
+            "tolerance": 200,
+            "type": "probe"
+          },
+          "output": {
+            "status": 200,
+            "headers": {
+              "Content-Type": "application/json;charset=UTF-8",
+              "Transfer-Encoding": "chunked",
+              "Date": "Wed, 15 Apr 2020 22:59:18 GMT"
+            },
+            "body": "{\"productId\":0,\"dateCommande\":\"2015-12-17T00:00:00.000+0000\",\"quantite\":22,\"commandePayee\":false,\"total\":2500.0}"
+          },
+          "status": "succeeded",
+          "start": "2020-04-15T22:59:18.760415",
+          "end": "2020-04-15T22:59:18.809407",
+          "duration": 0.048992,
+          "tolerance_met": true
+        }
+      ]
+    }
+  },
+  "run": [
+    {
+      "activity": {
+        "name": "enable_chaosmonkey",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9002/actuator"
+          },
+          "func": "enable_chaosmonkey",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      "output": "Chaos Monkey is enabled",
+      "status": "succeeded",
+      "start": "2020-04-15T22:59:18.742028",
+      "end": "2020-04-15T22:59:18.751633",
+      "duration": 0.009605
+    },
+    {
+      "activity": {
+        "name": "configure_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9002/actuator",
+            "assaults_configuration": {
+              "level": 1,
+              "latencyRangeStart": 30000,
+              "latencyRangeEnd": 60000,
+              "latencyActive": false,
+              "exceptionsActive": false,
+              "killApplicationActive": true,
+              "restartApplicationActive": false
+            }
+          },
+          "func": "change_assaults_configuration",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      "output": "Assault config has changed",
+      "status": "succeeded",
+      "start": "2020-04-15T22:59:18.752014",
+      "end": "2020-04-15T22:59:18.759917",
+      "duration": 0.007903
+    }
+  ],
+  "rollbacks": [
+    {
+      "activity": {
+        "name": "configure_assaults",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator",
+            "assaults_configuration": {
+              "level": 1,
+              "latencyRangeStart": 10000,
+              "latencyRangeEnd": 10000,
+              "latencyActive": false,
+              "exceptionsActive": false,
+              "killApplicationActive": false,
+              "restartApplicationActive": false
+            }
+          },
+          "func": "change_assaults_configuration",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      "output": "Assault config has changed",
+      "status": "succeeded",
+      "start": "2020-04-15T22:59:18.810154",
+      "end": "2020-04-15T22:59:18.817026",
+      "duration": 0.006872
+    },
+    {
+      "activity": {
+        "name": "disable_chaosmonkey",
+        "provider": {
+          "arguments": {
+            "base_url": "http://localhost:9001/actuator"
+          },
+          "func": "disable_chaosmonkey",
+          "module": "chaosspring.actions",
+          "type": "python"
+        },
+        "type": "action"
+      },
+      "output": "Chaos Monkey is disabled",
+      "status": "succeeded",
+      "start": "2020-04-15T22:59:18.817397",
+      "end": "2020-04-15T22:59:18.823076",
+      "duration": 0.005679
+    }
+  ],
+  "end": "2020-04-15T22:59:18.823244",
+  "duration": 2.124971389770508
+}
