@@ -131,7 +131,10 @@ pipeline {
                 gitlabBuilds(builds: ['Test-container']) {
                     gitlabCommitStatus('Test-container'){
                         script {
-                            pumba kill produits     
+                            dir('Pumba') {
+                                sh 'pumba kill produits'
+                                sh './check-commande-service-health.sh'
+                            }
                         }
                     }
                 }  

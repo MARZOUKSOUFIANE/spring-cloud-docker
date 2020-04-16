@@ -43,11 +43,11 @@
       - texlive-latex-extra
 
   - name: Install pumba for docker 
-    shell: curl -L https://github.com/alexei-led/pumba/releases/download/0.5.2/pumba_linux_amd64 -o ../pumba
+    shell: curl -L https://github.com/alexei-led/pumba/releases/download/0.5.2/pumba_linux_amd64 -o ../Pumba/pumba
 
 
   - name: Add executio permissio to pumba binary 
-    shell: chmod +x ../pumba
+    shell: chmod +x ../Pumba/pumba
 
 
 
